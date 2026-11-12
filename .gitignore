@@ -1,0 +1,24 @@
+# bağımlılık / derleme
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+.env*
+
+# ham ve büyük kaynaklar (yerelde kalır)
+referans/site/video/
+referans/isletme/*.mp4
+referans/isletme/*.jpeg
+referans/site/mekan/
+referans/site/urun/
+referans/site/menu/
+referans/site/*.json
+tasarim/site-ss/
+
+# insan görünen kareler (açık depoya girmez)
+referans/isletme/ic-mekan-2-k.jpg
+referans/isletme/video-kareler.jpg
+tasarim/kucuk/V-CEPHE.jpg
+tasarim/kucuk/V-PENCERE.jpg

@@ -1,0 +1,2017 @@
+{
+ "currency": "₺",
+ "categories": [
+  {
+   "id": "espresso",
+   "name": {
+    "tr": "Espresso",
+    "en": "Espresso"
+   },
+   "items": [
+    {
+     "id": "single-espresso",
+     "name": {
+      "tr": "Tek Espresso",
+      "en": "Single Espresso"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 120,
+     "variants": [],
+     "image": "ESPRESSO-1.jpg",
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "double-espresso",
+     "name": {
+      "tr": "Çift Espresso",
+      "en": "Double Espresso"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 150,
+     "variants": [],
+     "image": "DOUBLE-ESPRESSO-1.jpg",
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "espresso-macchiato",
+     "name": {
+      "tr": "Espresso Macchiato",
+      "en": "Espresso Macchiato"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 160,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "americano",
+     "name": {
+      "tr": "Americano",
+      "en": "Americano"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 180,
+     "variants": [],
+     "image": "AMERICANO.jpg",
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "cortado",
+     "name": {
+      "tr": "Cortado",
+      "en": "Cortado"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 180,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "flat-white",
+     "name": {
+      "tr": "Flat White",
+      "en": "Flat White"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 200,
+     "variants": [],
+     "image": "FLAT-WHITE.jpg",
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "cappuccino",
+     "name": {
+      "tr": "Cappuccino",
+      "en": "Cappuccino"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 200,
+     "variants": [],
+     "image": "CAPPUCCINO-1.jpg",
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "coffee-latte",
+     "name": {
+      "tr": "Coffee Latte",
+      "en": "Coffee Latte"
+     },
+     "desc": {
+      "tr": "Vanilla, Hazelnut, Coconut, Cookie, Toffee Nut, Tiramisu, Caramel, Salted Caramel",
+      "en": "Vanilla, Hazelnut, Coconut, Cookie, Toffee Nut, Tiramisu, Caramel, Salted Caramel"
+     },
+     "price": 200,
+     "variants": [],
+     "image": "COFFEE-LATTE-1.jpg",
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "coffee-mocha",
+     "name": {
+      "tr": "Coffee Mocha",
+      "en": "Coffee Mocha"
+     },
+     "desc": {
+      "tr": "Chocolate, White Chocolate, Zebra",
+      "en": "Chocolate, White Chocolate, Zebra"
+     },
+     "price": 230,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "caramel-macchiato",
+     "name": {
+      "tr": "Caramel Macchiato",
+      "en": "Caramel Macchiato"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 240,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "affogato",
+     "name": {
+      "tr": "Affogato",
+      "en": "Affogato"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "coffee",
+      "sweet"
+     ]
+    },
+    {
+     "id": "iced-americano",
+     "name": {
+      "tr": "Iced Americano",
+      "en": "Iced Americano"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 180,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced",
+      "coffee"
+     ]
+    },
+    {
+     "id": "iced-coffee-latte",
+     "name": {
+      "tr": "Iced Coffee Latte",
+      "en": "Iced Coffee Latte"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 200,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced",
+      "coffee"
+     ]
+    },
+    {
+     "id": "iced-latte-macchiato",
+     "name": {
+      "tr": "Iced Latte Macchiato",
+      "en": "Iced Latte Macchiato"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 200,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced",
+      "coffee"
+     ]
+    },
+    {
+     "id": "iced-mocha",
+     "name": {
+      "tr": "Iced Mocha",
+      "en": "Iced Mocha"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": "ICED-CHOCOLATE-MOCHA-1.jpg",
+     "tags": [
+      "iced",
+      "coffee"
+     ]
+    },
+    {
+     "id": "iced-blue-coffee-latte",
+     "name": {
+      "tr": "Iced Blue Coffee Latte",
+      "en": "Iced Blue Coffee Latte"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": "ICED-BLUE-COFFE-LATTE-1.jpg",
+     "tags": [
+      "iced",
+      "coffee"
+     ]
+    },
+    {
+     "id": "iced-caramel-macchiato",
+     "name": {
+      "tr": "Iced Caramel Macchiato",
+      "en": "Iced Caramel Macchiato"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 240,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced",
+      "coffee"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "extras",
+   "name": {
+    "tr": "Ekstralar",
+    "en": "Extras"
+   },
+   "items": [
+    {
+     "id": "flavored",
+     "name": {
+      "tr": "Aromalı",
+      "en": "Flavored"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 40,
+     "variants": [],
+     "image": null,
+     "tags": []
+    },
+    {
+     "id": "espresso-shot",
+     "name": {
+      "tr": "Espresso Shot",
+      "en": "Espresso Shot"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 50,
+     "variants": [],
+     "image": null,
+     "tags": []
+    },
+    {
+     "id": "plant-based-milk",
+     "name": {
+      "tr": "Bitkisel Süt",
+      "en": "Plant-Based Milk"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 75,
+     "variants": [],
+     "image": null,
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "brewed",
+   "name": {
+    "tr": "Demleme Kahveler",
+    "en": "Brewed"
+   },
+   "items": [
+    {
+     "id": "filter-coffee",
+     "name": {
+      "tr": "Filtre Kahve",
+      "en": "Filter Coffee"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 180,
+     "variants": [],
+     "image": "FILTRE-KAHVE.jpg",
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "v60",
+     "name": {
+      "tr": "V60",
+      "en": "V60"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 250,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "chemex",
+     "name": {
+      "tr": "Chemex",
+      "en": "Chemex"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 250,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "iced-filter-coffee",
+     "name": {
+      "tr": "Iced Filtre Kahve",
+      "en": "Iced Filter Coffee"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 160,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced",
+      "coffee"
+     ]
+    },
+    {
+     "id": "japanese-cold-brew",
+     "name": {
+      "tr": "Japanese Cold Brew",
+      "en": "Japanese Cold Brew"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 210,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced",
+      "coffee"
+     ]
+    },
+    {
+     "id": "cold-brew",
+     "name": {
+      "tr": "Cold Brew",
+      "en": "Cold Brew"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 250,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced",
+      "coffee"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "teas",
+   "name": {
+    "tr": "Çaylar",
+    "en": "Teas"
+   },
+   "items": [
+    {
+     "id": "turkish-tea",
+     "name": {
+      "tr": "Çay",
+      "en": "Turkish Tea"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 70,
+     "variants": [],
+     "image": "CAY.jpg",
+     "tags": [
+      "hot"
+     ]
+    },
+    {
+     "id": "cup-of-turkish-tea",
+     "name": {
+      "tr": "Bardak Çay",
+      "en": "Cup of Turkish Tea"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 95,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot"
+     ]
+    },
+    {
+     "id": "herbal-teas",
+     "name": {
+      "tr": "Bitki Çayları",
+      "en": "Herbal Teas"
+     },
+     "desc": {
+      "tr": "Marilyn, Pasha, Pavlova, Cookie, Cheating On You, Glühwein, Coco Chai Tea, Milk Oolong, Silver Needle",
+      "en": "Marilyn, Pasha, Pavlova, Cookie, Cheating On You, Glühwein, Coco Chai Tea, Milk Oolong, Silver Needle"
+     },
+     "price": 180,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "hot-drinks",
+   "name": {
+    "tr": "Sıcak İçecekler",
+    "en": "Hot Drinks"
+   },
+   "items": [
+    {
+     "id": "hot-chocolate",
+     "name": {
+      "tr": "Sıcak Çikolata",
+      "en": "Hot Chocolate"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": "SICAK-CIKOLATA-1.jpg",
+     "tags": [
+      "hot",
+      "sweet"
+     ]
+    },
+    {
+     "id": "hot-white-chocolate",
+     "name": {
+      "tr": "Sıcak Beyaz Çikolata",
+      "en": "Hot White Chocolate"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot",
+      "sweet"
+     ]
+    },
+    {
+     "id": "hot-caramel-chocolate",
+     "name": {
+      "tr": "Sıcak Karamelli Çikolata",
+      "en": "Hot Caramel Chocolate"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot",
+      "sweet"
+     ]
+    },
+    {
+     "id": "chai-tea-latte",
+     "name": {
+      "tr": "Chai Tea Latte",
+      "en": "Chai Tea Latte"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 210,
+     "variants": [],
+     "image": "CHAI-TEA-LATTE-1.jpg",
+     "tags": [
+      "hot"
+     ]
+    },
+    {
+     "id": "sahlep",
+     "name": {
+      "tr": "Sahlep",
+      "en": "Sahlep"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 200,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "turkish-coffee",
+   "name": {
+    "tr": "Türk Kahvesi",
+    "en": "Turkish Coffee"
+   },
+   "items": [
+    {
+     "id": "single-turkish-coffee",
+     "name": {
+      "tr": "Tek Türk Kahvesi",
+      "en": "Single Turkish Coffee"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 150,
+     "variants": [],
+     "image": "TURK-KAHVESI.jpg",
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    },
+    {
+     "id": "double-turkish-coffee",
+     "name": {
+      "tr": "Çift Türk Kahvesi",
+      "en": "Double Turkish Coffee"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 180,
+     "variants": [],
+     "image": "TURK-KAHVESI.jpg",
+     "tags": [
+      "hot",
+      "coffee"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "matcha",
+   "name": {
+    "tr": "Matcha",
+    "en": "Matcha"
+   },
+   "items": [
+    {
+     "id": "matcha-tea",
+     "name": {
+      "tr": "Matcha Tea",
+      "en": "Matcha Tea"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 220,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot"
+     ]
+    },
+    {
+     "id": "matcha-latte",
+     "name": {
+      "tr": "Matcha Latte",
+      "en": "Matcha Latte"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 240,
+     "variants": [],
+     "image": "MACHA.jpg",
+     "tags": [
+      "hot"
+     ]
+    },
+    {
+     "id": "flavored-matcha-latte",
+     "name": {
+      "tr": "Aromalı Matcha Latte",
+      "en": "Flavored Matcha Latte"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 260,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "hot"
+     ]
+    },
+    {
+     "id": "iced-matcha-tea",
+     "name": {
+      "tr": "Iced Matcha Tea",
+      "en": "Iced Matcha Tea"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 220,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "iced-matcha-latte",
+     "name": {
+      "tr": "Iced Matcha Latte",
+      "en": "Iced Matcha Latte"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 240,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "iced-flavored-matcha-latte",
+     "name": {
+      "tr": "Iced Aromalı Matcha Latte",
+      "en": "Iced Flavored Matcha Latte"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 260,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "drinks",
+   "name": {
+    "tr": "İçecekler",
+    "en": "Drinks"
+   },
+   "items": [
+    {
+     "id": "water",
+     "name": {
+      "tr": "Su",
+      "en": "Water"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 50,
+     "variants": [],
+     "image": "SU.jpg",
+     "tags": []
+    },
+    {
+     "id": "soda",
+     "name": {
+      "tr": "Soda",
+      "en": "Soda"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 100,
+     "variants": [],
+     "image": null,
+     "tags": []
+    },
+    {
+     "id": "churchill",
+     "name": {
+      "tr": "Churchill",
+      "en": "Churchill"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 150,
+     "variants": [],
+     "image": "CHURCHILL.jpg",
+     "tags": []
+    },
+    {
+     "id": "redbull",
+     "name": {
+      "tr": "Redbull",
+      "en": "Redbull"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 150,
+     "variants": [],
+     "image": "REDBULL-ORIGIN.jpg",
+     "tags": []
+    }
+   ]
+  },
+  {
+   "id": "garden-of-eden",
+   "name": {
+    "tr": "Garden of Eden",
+    "en": "Garden of Eden"
+   },
+   "items": [
+    {
+     "id": "strawberry-iced-tea",
+     "name": {
+      "tr": "Çilekli Iced Tea",
+      "en": "Strawberry Iced Tea"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 220,
+     "variants": [],
+     "image": "ICED-WATERMELON-STRAWBERRY-TEA-1.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "lemon-iced-tea",
+     "name": {
+      "tr": "Limonlu Iced Tea",
+      "en": "Lemon Iced Tea"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 220,
+     "variants": [],
+     "image": "ICED-TEA-LEMON-1.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "watermelon-iced-tea",
+     "name": {
+      "tr": "Karpuzlu Iced Tea",
+      "en": "Watermelon Iced Tea"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 220,
+     "variants": [],
+     "image": "ICED-WATERMELON-STRAWBERRY-TEA-1.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "peach-iced-tea",
+     "name": {
+      "tr": "Şeftalili Iced Tea",
+      "en": "Peach Iced Tea"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 220,
+     "variants": [],
+     "image": "ICED-TEA-SEFTALI-1.jpg",
+     "tags": [
+      "iced"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "milk-based",
+   "name": {
+    "tr": "Süt Bazlı",
+    "en": "Milk-Based"
+   },
+   "items": [
+    {
+     "id": "pinkyclouds",
+     "name": {
+      "tr": "Pinkyclouds",
+      "en": "Pinkyclouds"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 220,
+     "variants": [],
+     "image": "MOCKTAIL-PINK-CLOUD-1.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "tropiclouds",
+     "name": {
+      "tr": "Tropiclouds",
+      "en": "Tropiclouds"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 220,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "iced-chai-tea",
+     "name": {
+      "tr": "Iced Chai Tea",
+      "en": "Iced Chai Tea"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 200,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "milkshake",
+   "name": {
+    "tr": "Milkshake",
+    "en": "Milkshake"
+   },
+   "items": [
+    {
+     "id": "vanilla-milkshake",
+     "name": {
+      "tr": "Vanilyalı Milkshake",
+      "en": "Vanilla Milkshake"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 260,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced",
+      "sweet"
+     ]
+    },
+    {
+     "id": "chocolate-milkshake",
+     "name": {
+      "tr": "Çikolatalı Milkshake",
+      "en": "Chocolate Milkshake"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 260,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced",
+      "sweet"
+     ]
+    },
+    {
+     "id": "caramel-milkshake",
+     "name": {
+      "tr": "Karamelli Milkshake",
+      "en": "Caramel Milkshake"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 260,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced",
+      "sweet"
+     ]
+    },
+    {
+     "id": "italian-caramel-milkshake",
+     "name": {
+      "tr": "Italian Caramel Milkshake",
+      "en": "Italian Caramel Milkshake"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 260,
+     "variants": [],
+     "image": "ITALIAN-CARAMEL-MILKSHAKE-1.jpg",
+     "tags": [
+      "iced",
+      "sweet"
+     ]
+    },
+    {
+     "id": "baby-baby-milkshake",
+     "name": {
+      "tr": "Baby Baby Milkshake",
+      "en": "Baby Baby Milkshake"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 260,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced",
+      "sweet"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "refresh",
+   "name": {
+    "tr": "Ferahlatıcılar",
+    "en": "Refresh"
+   },
+   "items": [
+    {
+     "id": "mojito",
+     "name": {
+      "tr": "Mojito",
+      "en": "Mojito"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 220,
+     "variants": [],
+     "image": "MOJITO-1.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "fresh-crush",
+     "name": {
+      "tr": "Fresh Crush",
+      "en": "Fresh Crush"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 220,
+     "variants": [],
+     "image": "MOCKTAIL_-FRESH-CRUSH.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "lime-crush",
+     "name": {
+      "tr": "Lime Crush",
+      "en": "Lime Crush"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 220,
+     "variants": [],
+     "image": "MOCKTAIL_-COOL-LIME.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "berry-crush",
+     "name": {
+      "tr": "Berry Crush",
+      "en": "Berry Crush"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 220,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "frozen",
+   "name": {
+    "tr": "Frozen",
+    "en": "Frozen"
+   },
+   "items": [
+    {
+     "id": "mint-lemon-frozen",
+     "name": {
+      "tr": "Nane Limon Frozen",
+      "en": "Mint - Lemon Frozen"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": "FROZEN_-NANE-LIMON.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "pineapple-frozen",
+     "name": {
+      "tr": "Ananas Frozen",
+      "en": "Pineapple Frozen"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": "FROZEN_-ANANAS.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "mango-frozen",
+     "name": {
+      "tr": "Mango Frozen",
+      "en": "Mango Frozen"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": "FROZEN_-MANGO.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "strawberry-frozen",
+     "name": {
+      "tr": "Çilek Frozen",
+      "en": "Strawberry Frozen"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": "CILEK-FROZEN-1.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "watermelon-frozen",
+     "name": {
+      "tr": "Karpuz Frozen",
+      "en": "Watermelon Frozen"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": "FROZEN_-KARPUZ.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "blueberry-frozen",
+     "name": {
+      "tr": "Yaban Mersini Frozen",
+      "en": "Blueberry Frozen"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "redbull-mockail",
+   "name": {
+    "tr": "Redbull Mocktail",
+    "en": "Redbull Mockail"
+   },
+   "items": [
+    {
+     "id": "parliament",
+     "name": {
+      "tr": "Parliament",
+      "en": "Parliament"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 280,
+     "variants": [],
+     "image": "PARLIAMENT-1.jpg",
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "nirvana",
+     "name": {
+      "tr": "Nirvana",
+      "en": "Nirvana"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 280,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced"
+     ]
+    },
+    {
+     "id": "karma",
+     "name": {
+      "tr": "Karma",
+      "en": "Karma"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 280,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "iced"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "desserts",
+   "name": {
+    "tr": "Tatlılar",
+    "en": "Desserts"
+   },
+   "items": [
+    {
+     "id": "lotus-mousse",
+     "name": {
+      "tr": "Lotus Mousse",
+      "en": "Lotus Mousse"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 300,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "chocolate-mousse",
+     "name": {
+      "tr": "Çikolatalı Mousse",
+      "en": "Chocolate Mousse"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 350,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "mosaic-cake",
+     "name": {
+      "tr": "Mozaik Pasta",
+      "en": "Mosaic Cake"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 200,
+     "variants": [],
+     "image": "MOZAIK-KEK.jpg",
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "brownie",
+     "name": {
+      "tr": "Brownie",
+      "en": "Brownie"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 250,
+     "variants": [],
+     "image": "BROWNIE.jpg",
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "pistachios-brownie",
+     "name": {
+      "tr": "Antep Fıstıklı Brownie",
+      "en": "Pistachios Brownie"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 350,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "sweet"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cup-of-dessert",
+   "name": {
+    "tr": "Bardakta Tatlı",
+    "en": "Cup of Dessert"
+   },
+   "items": [
+    {
+     "id": "magnolia",
+     "name": {
+      "tr": "Magnolia",
+      "en": "Magnolia"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 275,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "tiramisu",
+     "name": {
+      "tr": "Tiramisu",
+      "en": "Tiramisu"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 275,
+     "variants": [],
+     "image": "TIRAMISU.jpg",
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "pistachios-cup",
+     "name": {
+      "tr": "Antep Fıstıklı Bardak",
+      "en": "Pistachios Cup"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 300,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "sweet"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cookies",
+   "name": {
+    "tr": "Kurabiyeler",
+    "en": "Cookies"
+   },
+   "items": [
+    {
+     "id": "dark-chocolate-cookie",
+     "name": {
+      "tr": "Bitter Çikolatalı Cookie",
+      "en": "Dark Chocolate Cookie"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 200,
+     "variants": [],
+     "image": "BITTER-CHOCOLATE-COOKIE.jpg",
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "pistachios-cookie",
+     "name": {
+      "tr": "Antep Fıstıklı Cookie",
+      "en": "Pistachios Cookie"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": "ANTEP-FISTIKLI-COOKIE.jpg",
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "chocolate-chip-cookie",
+     "name": {
+      "tr": "Çikolata Parçacıklı Cookie",
+      "en": "Chocolate Chip Cookie"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 230,
+     "variants": [],
+     "image": "CHOCOLATE-CHIP-COOKIE.jpg",
+     "tags": [
+      "sweet"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cheesecake",
+   "name": {
+    "tr": "Cheesecake",
+    "en": "Cheesecake"
+   },
+   "items": [
+    {
+     "id": "lotus-cheesecake",
+     "name": {
+      "tr": "Lotus Cheesecake",
+      "en": "Lotus Cheesecake"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 350,
+     "variants": [],
+     "image": "LOTUS-CHEESECAKE.jpg",
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "lemon-cheesecake",
+     "name": {
+      "tr": "Limonlu Cheesecake",
+      "en": "Lemon Cheesecake"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 350,
+     "variants": [],
+     "image": "LIMONLU-CHEESECAKE-1.jpg",
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "red-velvet-cheesecake",
+     "name": {
+      "tr": "Red Velvet Cheesecake",
+      "en": "Red Velvet Cheesecake"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 275,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "sweet"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "fruit-desserts",
+   "name": {
+    "tr": "Meyveli Tatlılar",
+    "en": "Fruit Desserts"
+   },
+   "items": [
+    {
+     "id": "fruit-tarte",
+     "name": {
+      "tr": "Meyveli Tart",
+      "en": "Fruit Tarte"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 275,
+     "variants": [],
+     "image": "TART.jpg",
+     "tags": [
+      "sweet"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "croissant",
+   "name": {
+    "tr": "Kruvasan",
+    "en": "Croissant"
+   },
+   "items": [
+    {
+     "id": "croissant",
+     "name": {
+      "tr": "Kruvasan",
+      "en": "Croissant"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 225,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "lotus-croissant",
+     "name": {
+      "tr": "Lotus Kruvasan",
+      "en": "Lotus Croissant"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 350,
+     "variants": [],
+     "image": "LOTUS-CROISSANT.jpg",
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "almond-croissant",
+     "name": {
+      "tr": "Bademli Kruvasan",
+      "en": "Almond Croissant"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 325,
+     "variants": [],
+     "image": "BEYAZ-CIKOLATALI-BADEMLI-CROISSANT.jpg",
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "belgium-chocolate-croissant",
+     "name": {
+      "tr": "Belçika Çikolatalı Kruvasan",
+      "en": "Belgium Chocolate Croissant"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 350,
+     "variants": [],
+     "image": "CIKOLATALI-CROISSANT-1.jpg",
+     "tags": [
+      "sweet"
+     ]
+    },
+    {
+     "id": "fruit-chocolate-croissant",
+     "name": {
+      "tr": "Meyveli & Çikolatalı Kruvasan",
+      "en": "Fruit & Chocolate Croissant"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 350,
+     "variants": [],
+     "image": "MEYVELI-CIKOLATALI-CROISSANT.jpg",
+     "tags": [
+      "sweet"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "salted-croissant",
+   "name": {
+    "tr": "Tuzlu Kruvasan",
+    "en": "Salted Croissant"
+   },
+   "items": [
+    {
+     "id": "olive-croissant",
+     "name": {
+      "tr": "Zeytinli Kruvasan",
+      "en": "Olive Croissant"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 250,
+     "variants": [],
+     "image": "ZEYTINLI-CROISSANT.jpg",
+     "tags": [
+      "savory"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "sandwiches",
+   "name": {
+    "tr": "Sandviçler",
+    "en": "Sandwiches"
+   },
+   "items": [
+    {
+     "id": "bagsi-sandwich",
+     "name": {
+      "tr": "Bagsi Sandviç",
+      "en": "Bagsi Sandwich"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 250,
+     "variants": [],
+     "image": "BAGSI-SANDWICH.jpg",
+     "tags": [
+      "savory"
+     ]
+    },
+    {
+     "id": "croissant-sandwich",
+     "name": {
+      "tr": "Kruvasan Sandviç",
+      "en": "Croissant Sandwich"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 275,
+     "variants": [],
+     "image": "CROISSANT-SANDWICH.jpg",
+     "tags": [
+      "savory"
+     ]
+    },
+    {
+     "id": "sourdough-sandwich",
+     "name": {
+      "tr": "Ekşi Mayalı Sandviç",
+      "en": "Sourdough Sandwich"
+     },
+     "desc": {
+      "tr": "",
+      "en": ""
+     },
+     "price": 275,
+     "variants": [],
+     "image": "EKSI-MAYALI-SANDWICH.jpg",
+     "tags": [
+      "savory"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "bowl",
+   "name": {
+    "tr": "Bowl",
+    "en": "Bowl"
+   },
+   "items": [
+    {
+     "id": "egg-bowl",
+     "name": {
+      "tr": "Egg Bowl",
+      "en": "Egg Bowl"
+     },
+     "desc": {
+      "tr": "Süzme Yoğurt, Yumurta, Kızartılmış Kruvasan, Susam, Çörek Otu",
+      "en": "Strained Yogurt, Egg, Fried Croissant, Sesame, Black Cumin"
+     },
+     "price": 275,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "savory"
+     ]
+    },
+    {
+     "id": "protein-bowl",
+     "name": {
+      "tr": "Protein Bowl",
+      "en": "Protein Bowl"
+     },
+     "desc": {
+      "tr": "Ton Balığı, Kuru Nohut, Akdeniz Yeşillikleri, Domates, Salatalık, Yumurta, Kinoa, Kızarmış Ekmek",
+      "en": "Tuna, Dried Chickpeas, Mediterranean Greens, Tomato, Cucumber, Egg, Quinoa, Toasted Bread"
+     },
+     "price": 275,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "savory"
+     ]
+    },
+    {
+     "id": "smoothie-bowl",
+     "name": {
+      "tr": "Smoothie Bowl",
+      "en": "Smoothie Bowl"
+     },
+     "desc": {
+      "tr": "Kırmızı Orman Meyveleri, Granola, Keten Tohumu, Chia Tohumu, Bal / Çikolata",
+      "en": "Red Forest Fruits, Granola, Flaxseed, Chia Seeds, Honey / Chocolate"
+     },
+     "price": 275,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "sweet"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "plate",
+   "name": {
+    "tr": "Tabak",
+    "en": "Plate"
+   },
+   "items": [
+    {
+     "id": "simple-breakfast",
+     "name": {
+      "tr": "Simple Breakfast",
+      "en": "Simple Breakfast"
+     },
+     "desc": {
+      "tr": "Kruvasan, Peynir, Köz Biber, Zeytin, Badem, Süt Reçeli, Bal, Mevsim Meyvesi, Çay",
+      "en": "Croissant, Cheese, Roasted Pepper, Olives, Almonds, Milk Jam, Honey, Seasonal Fruit, Tea"
+     },
+     "price": 275,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "savory"
+     ]
+    },
+    {
+     "id": "sante-breakfast",
+     "name": {
+      "tr": "Sante Breakfast",
+      "en": "Sante Breakfast"
+     },
+     "desc": {
+      "tr": "Yumurta, Dana Jambon, Peynir, Zeytin, Ekmek, Mevsim Meyvesi, Domates, Salatalık, Çay",
+      "en": "Egg, Veal Ham, Cheese, Olives, Bread, Seasonal Fruit, Tomato, Cucumber, Tea"
+     },
+     "price": 275,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "savory"
+     ]
+    },
+    {
+     "id": "sante-croissant-breakfast",
+     "name": {
+      "tr": "Sante Croissant Breakfast",
+      "en": "Sante Croissant Breakfast"
+     },
+     "desc": {
+      "tr": "Yumurta, Dana Jambon, Peynir, Zeytin, Ekmek, Mevsim Meyvesi, Domates, Salatalık, Çay, Kruvasan",
+      "en": "Egg, Veal Ham, Cheese, Olives, Bread, Seasonal Fruit, Tomato, Cucumber, Tea, Croissant"
+     },
+     "price": 275,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "savory"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "toasts",
+   "name": {
+    "tr": "Tostlar",
+    "en": "Toasts"
+   },
+   "items": [
+    {
+     "id": "cheese-toast",
+     "name": {
+      "tr": "Cheese Toast",
+      "en": "Cheese Toast"
+     },
+     "desc": {
+      "tr": "Domates, Salatalık, Zeytin ile servis edilir.",
+      "en": "Served with tomato, cucumber and olives."
+     },
+     "price": 250,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "savory"
+     ]
+    },
+    {
+     "id": "club-toast",
+     "name": {
+      "tr": "Club Toast",
+      "en": "Club Toast"
+     },
+     "desc": {
+      "tr": "Çırpılmış Yumurta, Cheddar Peynir, Domates, Dana Jambon, Mayonez",
+      "en": "Scrambled Egg, Cheddar Cheese, Tomato, Veal Ham, Mayonnaise"
+     },
+     "price": 275,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "savory"
+     ]
+    },
+    {
+     "id": "white-toast",
+     "name": {
+      "tr": "White Toast",
+      "en": "White Toast"
+     },
+     "desc": {
+      "tr": "Kaşar Peynir, Beyaz Peynir, Ceviz, Kekik, Acuka Sos",
+      "en": "Kashar Cheese, White Cheese, Walnut, Thyme, Acuka Sauce"
+     },
+     "price": 250,
+     "variants": [],
+     "image": null,
+     "tags": [
+      "savory"
+     ]
+    }
+   ]
+  }
+ ]
+}
