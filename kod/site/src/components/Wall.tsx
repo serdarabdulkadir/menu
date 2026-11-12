@@ -1,6 +1,5 @@
 "use client";
-import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
-import useEmblaCarousel from "embla-carousel-react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import { BOARDS, MOODS, isOpenNow, minuteNow, price, subscribeMinute, type Board } from "@/lib/menu";
 import { t } from "@/lib/i18n";
@@ -89,54 +88,78 @@ export function Wall() {
   const [rise] = useState(() => (entered ? "" : "rise"));
   useEffect(() => { entered = true; }, []);
   const [mood, setMood] = useState(() => moodOf(lastSel));
-  const [ref, api] = useEmblaCarousel({ align: "center", containScroll: false, dragFree: false, duration: 38, dragThreshold: 6, skipSnaps: false, startIndex: lastSel });
   const [sel, setSel] = useState(lastSel);
-  const onSelect = useCallback(() => { if (!api) return; lastSel = api.selectedScrollSnap(); setSel(lastSel); setMood(moodOf(lastSel)); }, [api]);
-  useEffect(() => { if (!api) return; api.on("select", onSelect); return () => { api.off("select", onSelect); }; }, [api, onSelect]);
+  // Karusel: telefonun YEREL kaydırması (momentum + scroll-snap). JS sürükleme yok → her cihazda doğal akıcılık.
+  const scroller = useRef<HTMLDivElement>(null);
+  const step = () => { const el = scroller.current; const f = el?.querySelector<HTMLElement>("[data-slide]"); return f ? f.offsetWidth + 12 : 312; };
+  const scrollToIdx = useCallback((i: number, smooth = true) => {
+    const el = scroller.current; if (!el) return;
+    el.scrollTo({ left: i * step(), behavior: smooth && !reduce ? "smooth" : "auto" });
+  }, [reduce]);
+  // Geri dönüşte kalınan panoya anında konumlan
+  useLayoutEffect(() => { scrollToIdx(lastSel, false); }, [scrollToIdx]);
 
-  // Kaydırma parmağı izler: yalnız transform/opacity, kare başına tek yazım (rAF).
+  // Kaydırma izlenir: yalnız transform/opacity, kare başına tek yazım (rAF).
   // Panolar çivide asılı gibi: kaydırma hızına göre hafifçe sallanır, yay gibi yerine oturur.
   useEffect(() => {
-    if (!api) return;
+    const el = scroller.current; if (!el) return;
     const lite = LOW_END || reduce;
-    let raf = 0;
-    let prev = api.scrollProgress();
-    let rot = 0;
-    let cache: { card: HTMLElement; img: HTMLElement | null }[] = [];
-    const build = () => { cache = api.slideNodes().map((n) => { const card = n.firstElementChild as HTMLElement; return { card, img: card?.querySelector<HTMLElement>("[data-par]") ?? null }; }); };
+    let raf = 0; let rot = 0;
+    let prev = el.scrollLeft;
+    const cards = [...el.querySelectorAll<HTMLElement>("[data-slide]")].map((n) => { const card = n.firstElementChild as HTMLElement; return { card, img: card?.querySelector<HTMLElement>("[data-par]") ?? null }; });
     const write = () => {
       raf = 0;
-      const progress = api.scrollProgress();
-      const snaps = api.scrollSnapList();
-      const span = Math.max(1, snaps.length - 1);
-      // Hız (pano/kare) → hedef eğim; yumuşak yaklaşım
-      const vel = (progress - prev) * span; prev = progress;
-      const target = lite ? 0 : Math.max(-2.6, Math.min(2.6, -vel * 50));
-      rot += (target - rot) * 0.16;
+      const st = step();
+      const pos = el.scrollLeft / st;
+      const vel = (el.scrollLeft - prev) / st; prev = el.scrollLeft;
+      const target = lite ? 0 : Math.max(-2.4, Math.min(2.4, -vel * 45));
+      rot += (target - rot) * 0.14;
       if (Math.abs(rot) < 0.01 && Math.abs(target) < 0.01) rot = 0;
-      cache.forEach(({ card, img }, i) => {
+      cards.forEach(({ card, img }, i) => {
         if (!card) return;
-        const raw = (snaps[i] - progress) * span;
+        const raw = i - pos;
         const d = Math.min(1, Math.abs(raw));
         card.style.opacity = String(1 - 0.22 * d);
         if (reduce) return;
         card.style.transform = `rotate(${rot.toFixed(3)}deg) scale(${(1 - 0.06 * d).toFixed(4)})`;
         if (img && !lite) img.style.transform = `translate3d(${(Math.max(-1, Math.min(1, raw)) * 16).toFixed(2)}px, 0, 0)`;
       });
-      // Sallanma sönene kadar kareleri sürdür
+      const idx = Math.max(0, Math.min(BOARDS.length - 1, Math.round(pos)));
+      if (idx !== lastSel) { lastSel = idx; setSel(idx); setMood(moodOf(idx)); }
       if (rot !== 0) raf = requestAnimationFrame(write);
     };
-    const tween = () => { if (!raf) raf = requestAnimationFrame(write); };
-    const rebuild = () => { build(); tween(); };
-    build(); write();
-    api.on("scroll", tween).on("reInit", rebuild).on("settle", tween);
-    return () => { if (raf) cancelAnimationFrame(raf); api.off("scroll", tween).off("reInit", rebuild).off("settle", tween); };
-  }, [api, reduce]);
+    // Yedek yakalama: kaydırma durunca ve parmak ekranda değilken pano ortada değilse en yakına yumuşakça otur
+    // (yarıdan azsa geri döner, fazlaysa ilerler; parmak basılıyken asla oynatmaz)
+    let touching = false; let idle: ReturnType<typeof setTimeout> | null = null;
+    const settle = () => {
+      if (touching) return;
+      const pos = el.scrollLeft / step(); const near = Math.round(pos);
+      if (Math.abs(pos - near) > 0.02) scrollToIdx(near);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(write);
+      if (idle) clearTimeout(idle);
+      idle = setTimeout(settle, 160);
+    };
+    const down = () => { touching = true; if (idle) clearTimeout(idle); };
+    const up = () => { touching = false; if (idle) clearTimeout(idle); idle = setTimeout(settle, 160); };
+    write();
+    el.addEventListener("scroll", onScroll, { passive: true });
+    el.addEventListener("touchstart", down, { passive: true });
+    el.addEventListener("touchend", up, { passive: true });
+    el.addEventListener("touchcancel", up, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      if (raf) cancelAnimationFrame(raf); if (idle) clearTimeout(idle);
+      el.removeEventListener("scroll", onScroll); el.removeEventListener("touchstart", down); el.removeEventListener("touchend", up); el.removeEventListener("touchcancel", up);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, [reduce, scrollToIdx]);
 
   const pickMood = (id: string) => {
     setMood(id);
     const first = MOODS.find((m) => m.id === id)!.boards[0];
-    api?.scrollTo(BOARDS.findIndex((b) => b.id === first));
+    scrollToIdx(BOARDS.findIndex((b) => b.id === first));
   };
 
   return (
@@ -182,15 +205,15 @@ export function Wall() {
         ))}
       </div>
 
-      <div className="mt-7 overflow-hidden" ref={ref}>
-        <div className="wall-track flex gap-3">
-          {BOARDS.map((b, i) => (<div key={b.id} className={`${rise} shrink-0`} style={{ ["--i" as string]: Math.min(i, 3) + 2 }}><WallBoard b={b} active={i === sel} /></div>))}
+      <div ref={scroller} className="wall-scroll no-scrollbar mt-7 overflow-x-auto overflow-y-hidden">
+        <div className="flex w-max gap-3 py-3" style={{ paddingInline: "max(16px, calc(50% - 150px))" }}>
+          {BOARDS.map((b, i) => (<div key={b.id} data-slide className={`${rise} shrink-0 snap-center snap-always`} style={{ ["--i" as string]: Math.min(i, 3) + 2 }}><WallBoard b={b} active={i === sel} /></div>))}
         </div>
       </div>
 
       <div className="mt-3 flex items-center justify-center gap-1">
         {BOARDS.map((b, i) => (
-          <button key={b.id} aria-label={b.name[lang]} aria-current={i === sel} onClick={() => api?.scrollTo(i)} className="relative grid h-11 w-5 place-items-center"><span className={`block h-1.5 rounded-full transition-all ${i === sel ? "w-5 bg-ink" : "w-1.5 bg-ink/25"}`} /></button>
+          <button key={b.id} aria-label={b.name[lang]} aria-current={i === sel} onClick={() => scrollToIdx(i)} className="relative grid h-11 w-5 place-items-center"><span className={`block h-1.5 rounded-full transition-all ${i === sel ? "w-5 bg-ink" : "w-1.5 bg-ink/25"}`} /></button>
         ))}
       </div>
       <p className="mt-0.5 text-center text-[13px] text-mut">{opened ? <>{BOARDS[sel]?.name[lang]} · {BOARDS[sel]?.count} {t("items", lang)}</> : <span className="font-serif text-[15px] italic text-ink">{t("tapHint", lang)}</span>}</p>

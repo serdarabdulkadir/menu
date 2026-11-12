@@ -67,7 +67,8 @@ body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; -w
   box-shadow: 0 10px 22px -10px rgba(64,42,18,.38); }
 
 /* Karusel şeridi kendi GPU katmanında: sürüklerken yeniden çizim yok */
-.wall-track { will-change: transform; backface-visibility: hidden; touch-action: pan-y pinch-zoom; }
+/* Yerel kaydırma + yakalama: iOS/Android momentum fiziği; bir hamlede bir pano */
+.wall-scroll { scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; scroll-behavior: auto; }
 
 /* Uzun listelerde ekran dışı bölümler çizilmez */
 .cv-auto { content-visibility: auto; contain-intrinsic-size: auto 600px; }
