@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { animate, motion, useMotionValue, useReducedMotion, useTransform, type MotionValue } from "motion/react";
+import { animate, motion, useMotionValue, useReducedMotion, useTransform } from "motion/react";
 import { useApp } from "./store";
 import { Icon } from "./ui";
 import { t } from "@/lib/i18n";
@@ -14,11 +14,6 @@ const NOTCHES = [0.33, 0.66];
 const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
 const buzz = (ms: number) => { try { navigator.vibrate?.(ms); } catch { /* iOS */ } };
 
-// Eşik çentiği: tutamaç geçince oak'a döner
-function Notch({ at, p }: { at: number; p: MotionValue<number> }) {
-  const bg = useTransform(p, (v) => (v >= at ? "#c99a62" : "rgba(30,26,23,0.22)"));
-  return <motion.span aria-hidden className="absolute top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full" style={{ left: `calc(${HANDLE / 2 + PAD}px + (100% - ${HANDLE + PAD * 2}px) * ${at})`, backgroundColor: bg }} />;
-}
 
 export function Intro({ wallRef }: { wallRef: React.RefObject<HTMLDivElement | null> }) {
   const { lang, setLang, go } = useApp();
@@ -185,7 +180,6 @@ export function Intro({ wallRef }: { wallRef: React.RefObject<HTMLDivElement | n
       <div className="flex-1" />
 
       <motion.div ref={track} className="relative z-10 mt-6 h-16 shrink-0 select-none rounded-full bg-ink/[0.07]" style={{ padding: PAD, opacity: trackOp }}>
-        {NOTCHES.map((n) => <Notch key={n} at={n} p={p} />)}
         <motion.span aria-hidden style={{ opacity: labelOp }} className="pointer-events-none absolute inset-0 flex items-center justify-center font-serif text-[20px] text-mut">
           {t("swipe", lang)} · <i className="ml-1.5 text-ink">{t("avanti", lang)}</i>
         </motion.span>
