@@ -42,7 +42,7 @@ function WallBoard({ b, active }: { b: Board; active: boolean }) {
       className={`board-card relative w-[300px] overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-oak cursor-pointer select-none shadow-[0_8px_18px_-6px_rgba(64,42,18,.35)] ${active ? "" : "is-dim"}`}>
       <Logo className="absolute left-1/2 top-[24px] w-[44px] -translate-x-1/2" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`/img/ill/${b.ill}.webp`} alt="" className="absolute -bottom-[14px] -right-[22px] w-[176px]" loading="lazy" decoding="async" />
+      <img src={`/img/ill/${b.ill}.webp`} alt="" className="absolute -bottom-[14px] -right-[22px] w-[176px]" loading="eager" decoding="async" draggable={false} />
       <div className="absolute left-[80px] right-[26px] top-[108px]">
         {groups.map((g) => (
           <div key={g.name} className="mb-3.5">
@@ -66,7 +66,7 @@ function WallBoard({ b, active }: { b: Board; active: boolean }) {
 export function Wall() {
   const { lang } = useApp();
   const [mood, setMood] = useState(MOODS[0].id);
-  const [ref, api] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps", dragFree: false, startIndex: lastSel });
+  const [ref, api] = useEmblaCarousel({ align: "start", containScroll: "trimSnaps", dragFree: false, duration: 22, skipSnaps: false, startIndex: lastSel });
   const [sel, setSel] = useState(lastSel);
   const onSelect = useCallback(() => { if (!api) return; lastSel = api.selectedScrollSnap(); setSel(lastSel); }, [api]);
   useEffect(() => { if (!api) return; api.on("select", onSelect); return () => { api.off("select", onSelect); }; }, [api, onSelect]);
@@ -90,7 +90,7 @@ export function Wall() {
       </div>
 
       <div className="mt-7 overflow-hidden" ref={ref}>
-        <div className="flex gap-4 pl-6 pr-6">
+        <div className="wall-track flex gap-4 pl-6 pr-6">
           {BOARDS.map((b, i) => (<div key={b.id} className="rise shrink-0" style={{ ["--i" as string]: Math.min(i, 3) + 2 }}><WallBoard b={b} active={i === sel} /></div>))}
         </div>
       </div>

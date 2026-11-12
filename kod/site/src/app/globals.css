@@ -15,7 +15,7 @@
 }
 
 html, body { background: var(--color-wall); color: var(--color-ink); }
-body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
+body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; -webkit-overflow-scrolling: touch; }
 * { -webkit-font-smoothing: antialiased; }
 .tabular { font-variant-numeric: tabular-nums; }
 .caps { text-transform: uppercase; letter-spacing: 0.06em; }
@@ -28,7 +28,9 @@ body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
 
 /* ----- Gönyeli meşe çerçeve ----- */
 .frame { --b: 14px; position: relative; background: var(--color-paper); isolation: isolate; }
-.frame > .fr { position: absolute; z-index: 30; pointer-events: none; background-size: cover; }
+.frame > .fr { position: absolute; z-index: 30; pointer-events: none;
+  /* cover yerine sabit karo: uzun sayfada şerit dev (2500px²) dokuya büyümesin, kaydırma kasmasın */
+  background-size: 100% 100%, 360px 360px; background-repeat: no-repeat, repeat; }
 .fr-t { top: 0; left: 0; right: 0; height: var(--b);
   clip-path: polygon(0 0, 100% 0, calc(100% - var(--b)) 100%, var(--b) 100%);
   background-image: linear-gradient(rgba(255,255,255,.18), rgba(255,255,255,.18)), url(/img/ahsap-yatay.webp); }
@@ -59,7 +61,11 @@ body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; }
 .rise { animation: rise .52s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i, 0) * 45ms); }
 
 /* Pano duvarında seçili olmayan panolar hafifçe geri çekilir */
-.board-card { transition: transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s; transform-origin: 50% 60%; }
+.board-card { transition: transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s; transform-origin: 50% 60%;
+  will-change: transform, opacity; contain: layout paint style; backface-visibility: hidden; }
+
+/* Karusel şeridi kendi GPU katmanında: sürüklerken yeniden çizim yok */
+.wall-track { will-change: transform; backface-visibility: hidden; touch-action: pan-y pinch-zoom; }
 .board-card.is-dim { transform: scale(.955); opacity: .82; }
 
 /* Uzun listelerde ekran dışı bölümler çizilmez */
