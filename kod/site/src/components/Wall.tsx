@@ -43,23 +43,26 @@ function WallBoard({ b, active }: { b: Board; active: boolean }) {
   let left = 6;
   for (const s of b.sections.slice(0, 2)) { if (left <= 0) break; const it = s.items.slice(0, left); groups.push({ name: s.name.en, items: it }); left -= it.length; }
   const shown = groups.reduce((n, g) => n + g.items.length, 0);
+  // Kısa ekranlarda (ör. iPhone SE) önizleme 4 satıra iner, gravür küçülür: çizim fiyatlara binmez
+  const SHORT = 4;
+  const starts: number[] = []; groups.reduce((n, g) => { starts.push(n); return n + g.items.length; }, 0);
   const open = () => { opened = true; go({ name: "board", id: b.id }); };
   return (
     <Frame b={14} onClick={open} role="button" tabIndex={0} aria-label={`${b.name[lang]} — ${t("openBoard", lang)}`}
       onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); } }}
-      style={{ height: "clamp(400px, calc(100svh - 330px), 500px)", viewTransitionName: `board-${b.id}` }}
+      style={{ height: "100%", maxHeight: 540, minHeight: 340, viewTransitionName: `board-${b.id}` }}
       className={`board-card relative w-[300px] overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-oak cursor-pointer select-none`}>
       <Logo className="absolute left-1/2 top-[24px] w-[44px] -translate-x-1/2" />
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={`/img/ill/${b.ill}.webp`} alt="" data-par className="absolute -bottom-[14px] -right-[22px] w-[176px]" loading="eager" decoding="async" draggable={false} />
-      <div className="absolute left-[80px] right-[26px] top-[108px]">
+      <img src={`/img/ill/${b.ill}.webp`} alt="" data-par className="absolute -bottom-[14px] -right-[22px] w-[176px] [@media(max-height:740px)]:w-[118px]" loading="eager" decoding="async" draggable={false} />
+      <div className="absolute left-[80px] right-[26px] top-[108px] [@media(max-height:740px)]:top-[92px]">
         <div style={{ WebkitMaskImage: "linear-gradient(to bottom, #000 62%, transparent 100%)", maskImage: "linear-gradient(to bottom, #000 62%, transparent 100%)" }}>
-        {groups.map((g) => (
-          <div key={g.name} className="mb-3.5">
+        {groups.map((g, gi) => (
+          <div key={g.name} className={`mb-3.5 ${starts[gi] >= SHORT ? "[@media(max-height:740px)]:hidden" : ""}`}>
             <p lang="en" className="mb-1.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-mut">{g.name}</p>
             <ul className="space-y-[7px]">
-              {g.items.map((i) => (
-                <li key={i.id} className={`flex justify-between gap-3 text-[10.5px] font-medium tracking-[0.06em] text-ink ${i.available ? "" : "opacity-45"}`}>
+              {g.items.map((i, ii) => (
+                <li key={i.id} className={`flex justify-between gap-3 text-[10.5px] font-medium tracking-[0.06em] text-ink ${i.available ? "" : "opacity-45"} ${starts[gi] + ii >= SHORT ? "[@media(max-height:740px)]:hidden" : ""}`}>
                   <span lang="en" className="truncate uppercase">{i.name.en}</span><span className="tabular">{i.price ?? ""}</span>
                 </li>
               ))}
@@ -67,7 +70,8 @@ function WallBoard({ b, active }: { b: Board; active: boolean }) {
           </div>
         ))}
         </div>
-        {b.count > shown && <p className="tabular -mt-1 text-[10.5px] font-medium uppercase tracking-[0.12em] text-mut">+{b.count - shown} {t("more", lang)}</p>}
+        {b.count > shown && <p className="tabular -mt-1 text-[10.5px] font-medium uppercase tracking-[0.12em] text-mut [@media(max-height:740px)]:hidden">+{b.count - shown} {t("more", lang)}</p>}
+        {b.count > Math.min(shown, SHORT) && <p className="tabular -mt-1 hidden text-[10.5px] font-medium uppercase tracking-[0.12em] text-mut [@media(max-height:740px)]:block">+{b.count - Math.min(shown, SHORT)} {t("more", lang)}</p>}
         <p className="mt-2.5 flex items-center gap-2 text-ink">
           <span className="border-b border-oak pb-[3px] font-serif text-[19px] italic leading-none">{t("seeAllN", lang)}</span>
           <motion.span className="inline-flex text-oak" animate={active ? { x: [0, 5, 0, 5, 0, 5, 0] } : { x: 0 }} transition={{ duration: 1.6, delay: 0.8, ease: "easeInOut" }}>{Icon.arrow("h-[18px] w-[18px]")}</motion.span>
@@ -163,7 +167,7 @@ export function Wall() {
   };
 
   return (
-    <motion.main className="mx-auto min-h-[100svh] max-w-[440px] pb-28 pt-8">
+    <motion.main className="mx-auto flex h-[100svh] max-w-[440px] flex-col overflow-hidden pb-[calc(66px+max(14px,env(safe-area-inset-bottom)))] pt-[max(24px,env(safe-area-inset-top))]">
       <div className={`${rise} flex items-start justify-between gap-3 px-5`}>
         <h1 className="font-serif text-[30px] leading-tight text-ink">{t("whatToday", lang)}</h1>
         <motion.button
@@ -205,18 +209,18 @@ export function Wall() {
         ))}
       </div>
 
-      <div ref={scroller} className="wall-scroll no-scrollbar mt-7 overflow-x-auto overflow-y-hidden">
-        <div className="flex w-max gap-3 py-3" style={{ paddingInline: "max(16px, calc(50% - 150px))" }}>
-          {BOARDS.map((b, i) => (<div key={b.id} data-slide className={`${rise} shrink-0 snap-center snap-always`} style={{ ["--i" as string]: Math.min(i, 3) + 2 }}><WallBoard b={b} active={i === sel} /></div>))}
+      <div ref={scroller} className="wall-scroll no-scrollbar mt-4 min-h-0 flex-1 overflow-x-auto overflow-y-hidden">
+        <div className="flex h-full w-max items-center gap-3 py-3" style={{ paddingInline: "max(16px, calc(50% - 150px))" }}>
+          {BOARDS.map((b, i) => (<div key={b.id} data-slide className={`${rise} flex h-full shrink-0 snap-center snap-always items-center`} style={{ ["--i" as string]: Math.min(i, 3) + 2 }}><WallBoard b={b} active={i === sel} /></div>))}
         </div>
       </div>
 
-      <div className="mt-3 flex items-center justify-center gap-1">
+      <div className="mt-1 flex shrink-0 items-center justify-center gap-1">
         {BOARDS.map((b, i) => (
           <button key={b.id} aria-label={b.name[lang]} aria-current={i === sel} onClick={() => scrollToIdx(i)} className="relative grid h-11 w-5 place-items-center"><span className={`block h-1.5 rounded-full transition-all ${i === sel ? "w-5 bg-ink" : "w-1.5 bg-ink/25"}`} /></button>
         ))}
       </div>
-      <p className="mt-0.5 text-center text-[13px] text-mut">{opened ? <>{BOARDS[sel]?.name[lang]} · {BOARDS[sel]?.count} {t("items", lang)}</> : <span className="font-serif text-[15px] italic text-ink">{t("tapHint", lang)}</span>}</p>
+      <p className="mb-2 shrink-0 text-center text-[13px] text-mut">{opened ? <>{BOARDS[sel]?.name[lang]} · {BOARDS[sel]?.count} {t("items", lang)}</> : <span className="font-serif text-[15px] italic text-ink">{t("tapHint", lang)}</span>}</p>
       <BottomBar />
     </motion.main>
   );
