@@ -28,7 +28,7 @@ export function Row({ i, onOpen, q, index = 0 }: { i: Item; onOpen: (i: Item) =>
 }
 
 export function BoardPage({ id }: { id: string }) {
-  const { lang, go, openProduct } = useApp();
+  const { lang, go, openProduct, setInfoOpen } = useApp();
   const b = BOARDS.find((x) => x.id === id)!;
   return (
     <div className="mx-auto max-w-[440px]">
@@ -56,6 +56,10 @@ export function BoardPage({ id }: { id: string }) {
                 </section>
               ))}
             </div>
+          </div>
+          <div className="mt-12 flex flex-col items-center px-6">
+            <p className="font-serif text-[26px] text-ink">permesso? <i className="text-oak">avanti!</i></p>
+            <button onClick={() => setInfoOpen(true)} className="mt-4 flex h-11 items-center rounded-full border border-ink/20 px-5 text-[14px] text-ink">{t("info", lang)}</button>
           </div>
         </div>
       </Frame>

@@ -45,5 +45,8 @@ export const Icon = {
   plus: (c = "") => (<svg viewBox="0 0 24 24" className={c} {...P}><path d="M12 5v14M5 12h14" /></svg>),
   minus: (c = "") => (<svg viewBox="0 0 24 24" className={c} {...P}><path d="M5 12h14" /></svg>),
   arrow: (c = "") => (<svg viewBox="0 0 24 24" className={c} {...P}><path d="M5 12h14M13 6l6 6-6 6" /></svg>),
+  info: (c = "") => (<svg viewBox="0 0 24 24" className={c} {...P}><circle cx="12" cy="12" r="9" /><path d="M12 11v5.5" /><circle cx="12" cy="7.8" r=".6" fill="currentColor" /></svg>),
+  phone: (c = "") => (<svg viewBox="0 0 24 24" className={c} {...P}><path d="M6.6 3.5h3l1.4 4-2 1.3a11 11 0 005.2 5.2l1.3-2 4 1.4v3a2 2 0 01-2.2 2A15.5 15.5 0 014.6 5.7a2 2 0 012-2.2z" /></svg>),
+  chat: (c = "") => (<svg viewBox="0 0 24 24" className={c} {...P}><path d="M4.5 5.5h15v10h-8l-4.5 3.5v-3.5h-2.5z" /></svg>),
   check: (c = "") => (<svg viewBox="0 0 24 24" className={c} {...P} strokeWidth={2}><path d="M5 12.5l4.5 4.5L19 7.5" /></svg>),
 };

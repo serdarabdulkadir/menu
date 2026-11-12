@@ -9,6 +9,8 @@ export type Item = {
   price: number | null;
   image: string | null;
   tags: string[];
+  options?: string[]; // ör. Latte şurupları, bitki çayı çeşitleri
+  optionsOptional?: boolean; // true: "Sade" de seçilebilir
   category: string;
   categoryName: L10n;
   board: string;
@@ -66,6 +68,31 @@ export const BOARD_ILL: Record<string, string> = Object.fromEntries(BOARD_DEFS.m
 export const ALL_ITEMS: Item[] = BOARDS.flatMap((b) => b.sections.flatMap((s) => s.items));
 export const ITEM_BY_ID = new Map(ALL_ITEMS.map((i) => [i.id + "@" + i.category, i]));
 export const keyOf = (i: Item) => i.id + "@" + i.category;
+// Seçenek listesi (gerekirse başta "Sade")
+export const optionList = (i: Item, lang: Lang) => (i.options?.length ? [...(i.optionsOptional ? [lang === "tr" ? "Sade" : "Plain"] : []), ...i.options] : []);
+
+// Vitrin: fotoğraflı öne çıkanlar
+export const SHOWCASE_IDS = ["lotus-cheesecake", "egg-bowl", "pistachio-brownie", "hot-chocolate", "smoothie-bowl", "magnolia"];
+
+// İşletme bilgisi
+export const INFO = {
+  open: "09:30",
+  close: "00:00",
+  address: "2 Nolu Beşirli Mah. Devlet Sahil Yolu Cad. No:471B, Ortahisar / Trabzon",
+  maps: "https://www.google.com/maps/search/?api=1&query=Permesso+Devlet+Sahil+Yolu+Cad.+471B+Ortahisar+Trabzon",
+  phone: "+905315779700",
+  phoneLabel: "0531 577 97 00",
+  whatsapp: "https://wa.me/905315779700",
+  instagram: "https://www.instagram.com/permessotr/",
+  handle: "permessotr",
+};
+// Şu an açık mı? (kapanış gece yarısını geçebilir)
+export function isOpenNow(d = new Date()) {
+  const m = d.getHours() * 60 + d.getMinutes();
+  const [oh, om] = INFO.open.split(":").map(Number); const [ch, cm] = INFO.close.split(":").map(Number);
+  const o = oh * 60 + om; let c = ch * 60 + cm; if (c <= o) c += 24 * 60;
+  return (m >= o && m < c) || (m + 24 * 60 >= o && m + 24 * 60 < c);
+}
 
 export const MOODS: { id: string; label: L10n; boards: string[] }[] = [
   { id: "uyan", label: { tr: "Uyan", en: "Wake up" }, boards: ["coffee", "hot"] },

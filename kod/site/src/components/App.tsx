@@ -7,9 +7,10 @@ import { BoardPage } from "./BoardPage";
 import { TablePage, ShowPage } from "./TablePage";
 import { ProductDrawer } from "./ProductDrawer";
 import { SearchDrawer } from "./SearchDrawer";
+import { InfoSheet } from "./InfoSheet";
 
 function Screens() {
-  const { view } = useApp();
+  const { view, infoOpen, setInfoOpen } = useApp();
   return (
     <LayoutGroup>
       <AnimatePresence mode="wait">
@@ -21,6 +22,7 @@ function Screens() {
       {view.name === "show" && <ShowPage />}
       <ProductDrawer />
       <SearchDrawer />
+      <InfoSheet open={infoOpen} onOpenChange={setInfoOpen} />
     </LayoutGroup>
   );
 }

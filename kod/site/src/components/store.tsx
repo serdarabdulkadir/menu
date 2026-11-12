@@ -3,7 +3,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import { flushSync } from "react-dom";
 import { EXTRAS, ITEM_BY_ID, keyOf, type Item, type Lang } from "@/lib/menu";
 
-export type Line = { key: string; itemKey: string; extras: string[]; qty: number };
+export type Line = { key: string; itemKey: string; extras: string[]; option?: string; qty: number };
 export type View = { name: "intro" } | { name: "wall" } | { name: "board"; id: string } | { name: "table" } | { name: "show" };
 
 type Ctx = {
@@ -11,7 +11,8 @@ type Ctx = {
   view: View; go: (v: View) => void;
   product: Item | null; openProduct: (i: Item | null) => void;
   searchOpen: boolean; setSearchOpen: (b: boolean) => void;
-  lines: Line[]; add: (i: Item, extras: string[], qty: number) => void; setQty: (key: string, q: number) => void;
+  infoOpen: boolean; setInfoOpen: (b: boolean) => void;
+  lines: Line[]; add: (i: Item, extras: string[], qty: number, option?: string) => void; setQty: (key: string, q: number) => void;
   note: string; setNote: (s: string) => void;
   count: number; total: number;
   lineTotal: (l: Line) => number;
@@ -27,6 +28,7 @@ export function Provider({ children }: { children: React.ReactNode }) {
   const [view, setView] = useState<View>({ name: "intro" });
   const [product, openProduct] = useState<Item | null>(null);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [infoOpen, setInfoOpen] = useState(false);
   const [lines, setLines] = useState<Line[]>([]);
   const [note, setNote] = useState("");
   // Masa numarası QR adresinden gelir: …/?masa=7
@@ -47,12 +49,12 @@ export function Provider({ children }: { children: React.ReactNode }) {
     } else run();
   }, []);
 
-  const add = useCallback((i: Item, extras: string[], qty: number) => {
+  const add = useCallback((i: Item, extras: string[], qty: number, option?: string) => {
     const itemKey = keyOf(i);
-    const key = itemKey + "|" + [...extras].sort().join(",");
+    const key = itemKey + "|" + [...extras].sort().join(",") + (option ? "|" + option : "");
     setLines((ls) => {
       const f = ls.find((l) => l.key === key);
-      return f ? ls.map((l) => (l.key === key ? { ...l, qty: l.qty + qty } : l)) : [...ls, { key, itemKey, extras, qty }];
+      return f ? ls.map((l) => (l.key === key ? { ...l, qty: l.qty + qty } : l)) : [...ls, { key, itemKey, extras, option, qty }];
     });
     navigator.vibrate?.(12);
   }, []);
@@ -65,11 +67,11 @@ export function Provider({ children }: { children: React.ReactNode }) {
   }, []);
 
   const value = useMemo<Ctx>(() => ({
-    lang, setLang: setLangS, view, go, product, openProduct, searchOpen, setSearchOpen,
+    lang, setLang: setLangS, view, go, product, openProduct, searchOpen, setSearchOpen, infoOpen, setInfoOpen,
     lines, add, setQty, note, setNote, lineTotal, masa,
     count: lines.reduce((s, l) => s + l.qty, 0),
     total: lines.reduce((s, l) => s + lineTotal(l), 0),
-  }), [lang, view, go, product, searchOpen, lines, add, setQty, note, lineTotal, masa]);
+  }), [lang, view, go, product, searchOpen, infoOpen, lines, add, setQty, note, lineTotal, masa]);
 
   return <C.Provider value={value}>{children}</C.Provider>;
 }

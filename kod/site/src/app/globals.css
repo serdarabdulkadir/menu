@@ -61,12 +61,11 @@ body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; -w
 .rise { animation: rise .52s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i, 0) * 45ms); }
 
 /* Pano duvarında seçili olmayan panolar hafifçe geri çekilir */
-.board-card { transition: transform .45s cubic-bezier(.2,.8,.2,1), opacity .45s; transform-origin: 50% 60%;
+.board-card { transform-origin: 50% 55%;
   will-change: transform, opacity; contain: layout paint style; backface-visibility: hidden; }
 
 /* Karusel şeridi kendi GPU katmanında: sürüklerken yeniden çizim yok */
 .wall-track { will-change: transform; backface-visibility: hidden; touch-action: pan-y pinch-zoom; }
-.board-card.is-dim { transform: scale(.955); opacity: .82; }
 
 /* Uzun listelerde ekran dışı bölümler çizilmez */
 .cv-auto { content-visibility: auto; contain-intrinsic-size: auto 600px; }

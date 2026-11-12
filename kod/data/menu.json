@@ -19,7 +19,6 @@
       "en": ""
      },
      "price": 120,
-     "variants": [],
      "image": "ESPRESSO-1.jpg",
      "tags": [
       "hot",
@@ -37,7 +36,6 @@
       "en": ""
      },
      "price": 150,
-     "variants": [],
      "image": "DOUBLE-ESPRESSO-1.jpg",
      "tags": [
       "hot",
@@ -55,7 +53,6 @@
       "en": ""
      },
      "price": 160,
-     "variants": [],
      "image": null,
      "tags": [
       "hot",
@@ -73,7 +70,6 @@
       "en": ""
      },
      "price": 180,
-     "variants": [],
      "image": "AMERICANO.jpg",
      "tags": [
       "hot",
@@ -91,7 +87,6 @@
       "en": ""
      },
      "price": 180,
-     "variants": [],
      "image": null,
      "tags": [
       "hot",
@@ -109,7 +104,6 @@
       "en": ""
      },
      "price": 200,
-     "variants": [],
      "image": "FLAT-WHITE.jpg",
      "tags": [
       "hot",
@@ -127,7 +121,6 @@
       "en": ""
      },
      "price": 200,
-     "variants": [],
      "image": "CAPPUCCINO-1.jpg",
      "tags": [
       "hot",
@@ -141,16 +134,26 @@
       "en": "Coffee Latte"
      },
      "desc": {
-      "tr": "Vanilla, Hazelnut, Coconut, Cookie, Toffee Nut, Tiramisu, Caramel, Salted Caramel",
-      "en": "Vanilla, Hazelnut, Coconut, Cookie, Toffee Nut, Tiramisu, Caramel, Salted Caramel"
+      "tr": "",
+      "en": ""
      },
      "price": 200,
-     "variants": [],
      "image": "COFFEE-LATTE-1.jpg",
      "tags": [
       "hot",
       "coffee"
-     ]
+     ],
+     "options": [
+      "Vanilla",
+      "Hazelnut",
+      "Coconut",
+      "Cookie",
+      "Toffee Nut",
+      "Tiramisu",
+      "Caramel",
+      "Salted Caramel"
+     ],
+     "optionsOptional": true
     },
     {
      "id": "coffee-mocha",
@@ -159,15 +162,19 @@
       "en": "Coffee Mocha"
      },
      "desc": {
-      "tr": "Chocolate, White Chocolate, Zebra",
-      "en": "Chocolate, White Chocolate, Zebra"
+      "tr": "",
+      "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": null,
      "tags": [
       "hot",
       "coffee"
+     ],
+     "options": [
+      "Chocolate",
+      "White Chocolate",
+      "Zebra"
      ]
     },
     {
@@ -181,7 +188,6 @@
       "en": ""
      },
      "price": 240,
-     "variants": [],
      "image": null,
      "tags": [
       "hot",
@@ -199,7 +205,6 @@
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": null,
      "tags": [
       "coffee",
@@ -217,7 +222,6 @@
       "en": ""
      },
      "price": 180,
-     "variants": [],
      "image": null,
      "tags": [
       "iced",
@@ -235,7 +239,6 @@
       "en": ""
      },
      "price": 200,
-     "variants": [],
      "image": null,
      "tags": [
       "iced",
@@ -253,7 +256,6 @@
       "en": ""
      },
      "price": 200,
-     "variants": [],
      "image": null,
      "tags": [
       "iced",
@@ -271,7 +273,6 @@
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": "ICED-CHOCOLATE-MOCHA-1.jpg",
      "tags": [
       "iced",
@@ -289,7 +290,6 @@
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": "ICED-BLUE-COFFE-LATTE-1.jpg",
      "tags": [
       "iced",
@@ -307,7 +307,6 @@
       "en": ""
      },
      "price": 240,
-     "variants": [],
      "image": null,
      "tags": [
       "iced",
@@ -334,7 +333,6 @@
       "en": ""
      },
      "price": 40,
-     "variants": [],
      "image": null,
      "tags": []
     },
@@ -349,7 +347,6 @@
       "en": ""
      },
      "price": 50,
-     "variants": [],
      "image": null,
      "tags": []
     },
@@ -364,7 +361,6 @@
       "en": ""
      },
      "price": 75,
-     "variants": [],
      "image": null,
      "tags": []
     }
@@ -388,7 +384,6 @@
       "en": ""
      },
      "price": 180,
-     "variants": [],
      "image": "FILTRE-KAHVE.jpg",
      "tags": [
       "hot",
@@ -406,7 +401,6 @@
       "en": ""
      },
      "price": 250,
-     "variants": [],
      "image": null,
      "tags": [
       "hot",
@@ -424,7 +418,6 @@
       "en": ""
      },
      "price": 250,
-     "variants": [],
      "image": null,
      "tags": [
       "hot",
@@ -442,7 +435,6 @@
       "en": ""
      },
      "price": 160,
-     "variants": [],
      "image": null,
      "tags": [
       "iced",
@@ -460,7 +452,6 @@
       "en": ""
      },
      "price": 210,
-     "variants": [],
      "image": null,
      "tags": [
       "iced",
@@ -478,7 +469,6 @@
       "en": ""
      },
      "price": 250,
-     "variants": [],
      "image": null,
      "tags": [
       "iced",
@@ -505,7 +495,6 @@
       "en": ""
      },
      "price": 70,
-     "variants": [],
      "image": "CAY.jpg",
      "tags": [
       "hot"
@@ -522,7 +511,6 @@
       "en": ""
      },
      "price": 95,
-     "variants": [],
      "image": null,
      "tags": [
       "hot"
@@ -535,14 +523,24 @@
       "en": "Herbal Teas"
      },
      "desc": {
-      "tr": "Marilyn, Pasha, Pavlova, Cookie, Cheating On You, Glühwein, Coco Chai Tea, Milk Oolong, Silver Needle",
-      "en": "Marilyn, Pasha, Pavlova, Cookie, Cheating On You, Glühwein, Coco Chai Tea, Milk Oolong, Silver Needle"
+      "tr": "",
+      "en": ""
      },
      "price": 180,
-     "variants": [],
      "image": null,
      "tags": [
       "hot"
+     ],
+     "options": [
+      "Marilyn",
+      "Pasha",
+      "Pavlova",
+      "Cookie",
+      "Cheating On You",
+      "Glühwein",
+      "Coco Chai Tea",
+      "Milk Oolong",
+      "Silver Needle"
      ]
     }
    ]
@@ -565,7 +563,6 @@
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": "SICAK-CIKOLATA-1.jpg",
      "tags": [
       "hot",
@@ -583,7 +580,6 @@
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": null,
      "tags": [
       "hot",
@@ -601,7 +597,6 @@
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": null,
      "tags": [
       "hot",
@@ -619,7 +614,6 @@
       "en": ""
      },
      "price": 210,
-     "variants": [],
      "image": "CHAI-TEA-LATTE-1.jpg",
      "tags": [
       "hot"
@@ -636,7 +630,6 @@
       "en": ""
      },
      "price": 200,
-     "variants": [],
      "image": null,
      "tags": [
       "hot"
@@ -662,7 +655,6 @@
       "en": ""
      },
      "price": 150,
-     "variants": [],
      "image": "TURK-KAHVESI.jpg",
      "tags": [
       "hot",
@@ -680,7 +672,6 @@
       "en": ""
      },
      "price": 180,
-     "variants": [],
      "image": "TURK-KAHVESI.jpg",
      "tags": [
       "hot",
@@ -707,7 +698,6 @@
       "en": ""
      },
      "price": 220,
-     "variants": [],
      "image": null,
      "tags": [
       "hot"
@@ -724,7 +714,6 @@
       "en": ""
      },
      "price": 240,
-     "variants": [],
      "image": "MACHA.jpg",
      "tags": [
       "hot"
@@ -741,7 +730,6 @@
       "en": ""
      },
      "price": 260,
-     "variants": [],
      "image": null,
      "tags": [
       "hot"
@@ -758,7 +746,6 @@
       "en": ""
      },
      "price": 220,
-     "variants": [],
      "image": null,
      "tags": [
       "iced"
@@ -775,7 +762,6 @@
       "en": ""
      },
      "price": 240,
-     "variants": [],
      "image": null,
      "tags": [
       "iced"
@@ -792,7 +778,6 @@
       "en": ""
      },
      "price": 260,
-     "variants": [],
      "image": null,
      "tags": [
       "iced"
@@ -818,7 +803,6 @@
       "en": ""
      },
      "price": 50,
-     "variants": [],
      "image": "SU.jpg",
      "tags": []
     },
@@ -833,7 +817,6 @@
       "en": ""
      },
      "price": 100,
-     "variants": [],
      "image": null,
      "tags": []
     },
@@ -848,7 +831,6 @@
       "en": ""
      },
      "price": 150,
-     "variants": [],
      "image": "CHURCHILL.jpg",
      "tags": []
     },
@@ -863,7 +845,6 @@
       "en": ""
      },
      "price": 150,
-     "variants": [],
      "image": "REDBULL-ORIGIN.jpg",
      "tags": []
     }
@@ -887,7 +868,6 @@
       "en": ""
      },
      "price": 220,
-     "variants": [],
      "image": "ICED-WATERMELON-STRAWBERRY-TEA-1.jpg",
      "tags": [
       "iced"
@@ -904,7 +884,6 @@
       "en": ""
      },
      "price": 220,
-     "variants": [],
      "image": "ICED-TEA-LEMON-1.jpg",
      "tags": [
       "iced"
@@ -921,7 +900,6 @@
       "en": ""
      },
      "price": 220,
-     "variants": [],
      "image": "ICED-WATERMELON-STRAWBERRY-TEA-1.jpg",
      "tags": [
       "iced"
@@ -938,7 +916,6 @@
       "en": ""
      },
      "price": 220,
-     "variants": [],
      "image": "ICED-TEA-SEFTALI-1.jpg",
      "tags": [
       "iced"
@@ -964,7 +941,6 @@
       "en": ""
      },
      "price": 220,
-     "variants": [],
      "image": "MOCKTAIL-PINK-CLOUD-1.jpg",
      "tags": [
       "iced"
@@ -981,7 +957,6 @@
       "en": ""
      },
      "price": 220,
-     "variants": [],
      "image": null,
      "tags": [
       "iced"
@@ -998,7 +973,6 @@
       "en": ""
      },
      "price": 200,
-     "variants": [],
      "image": null,
      "tags": [
       "iced"
@@ -1024,7 +998,6 @@
       "en": ""
      },
      "price": 260,
-     "variants": [],
      "image": null,
      "tags": [
       "iced",
@@ -1042,7 +1015,6 @@
       "en": ""
      },
      "price": 260,
-     "variants": [],
      "image": null,
      "tags": [
       "iced",
@@ -1060,7 +1032,6 @@
       "en": ""
      },
      "price": 260,
-     "variants": [],
      "image": null,
      "tags": [
       "iced",
@@ -1078,7 +1049,6 @@
       "en": ""
      },
      "price": 260,
-     "variants": [],
      "image": "ITALIAN-CARAMEL-MILKSHAKE-1.jpg",
      "tags": [
       "iced",
@@ -1096,7 +1066,6 @@
       "en": ""
      },
      "price": 260,
-     "variants": [],
      "image": null,
      "tags": [
       "iced",
@@ -1123,7 +1092,6 @@
       "en": ""
      },
      "price": 220,
-     "variants": [],
      "image": "MOJITO-1.jpg",
      "tags": [
       "iced"
@@ -1140,7 +1108,6 @@
       "en": ""
      },
      "price": 220,
-     "variants": [],
      "image": "MOCKTAIL_-FRESH-CRUSH.jpg",
      "tags": [
       "iced"
@@ -1157,7 +1124,6 @@
       "en": ""
      },
      "price": 220,
-     "variants": [],
      "image": "MOCKTAIL_-COOL-LIME.jpg",
      "tags": [
       "iced"
@@ -1174,7 +1140,6 @@
       "en": ""
      },
      "price": 220,
-     "variants": [],
      "image": null,
      "tags": [
       "iced"
@@ -1193,14 +1158,13 @@
      "id": "mint-lemon-frozen",
      "name": {
       "tr": "Nane Limon Frozen",
-      "en": "Mint - Lemon Frozen"
+      "en": "Mint-Lemon Frozen"
      },
      "desc": {
       "tr": "",
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": "FROZEN_-NANE-LIMON.jpg",
      "tags": [
       "iced"
@@ -1217,7 +1181,6 @@
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": "FROZEN_-ANANAS.jpg",
      "tags": [
       "iced"
@@ -1234,7 +1197,6 @@
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": "FROZEN_-MANGO.jpg",
      "tags": [
       "iced"
@@ -1251,7 +1213,6 @@
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": "CILEK-FROZEN-1.jpg",
      "tags": [
       "iced"
@@ -1268,7 +1229,6 @@
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": "FROZEN_-KARPUZ.jpg",
      "tags": [
       "iced"
@@ -1285,7 +1245,6 @@
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": null,
      "tags": [
       "iced"
@@ -1311,7 +1270,6 @@
       "en": ""
      },
      "price": 280,
-     "variants": [],
      "image": "PARLIAMENT-1.jpg",
      "tags": [
       "iced"
@@ -1328,7 +1286,6 @@
       "en": ""
      },
      "price": 280,
-     "variants": [],
      "image": null,
      "tags": [
       "iced"
@@ -1345,7 +1302,6 @@
       "en": ""
      },
      "price": 280,
-     "variants": [],
      "image": null,
      "tags": [
       "iced"
@@ -1371,7 +1327,6 @@
       "en": ""
      },
      "price": 300,
-     "variants": [],
      "image": null,
      "tags": [
       "sweet"
@@ -1388,7 +1343,6 @@
       "en": ""
      },
      "price": 350,
-     "variants": [],
      "image": null,
      "tags": [
       "sweet"
@@ -1405,7 +1359,6 @@
       "en": ""
      },
      "price": 200,
-     "variants": [],
      "image": "MOZAIK-KEK.jpg",
      "tags": [
       "sweet"
@@ -1422,7 +1375,6 @@
       "en": ""
      },
      "price": 250,
-     "variants": [],
      "image": "BROWNIE.jpg",
      "tags": [
       "sweet"
@@ -1432,14 +1384,13 @@
      "id": "pistachios-brownie",
      "name": {
       "tr": "Antep Fıstıklı Brownie",
-      "en": "Pistachios Brownie"
+      "en": "Pistachio Brownie"
      },
      "desc": {
       "tr": "",
       "en": ""
      },
      "price": 350,
-     "variants": [],
      "image": null,
      "tags": [
       "sweet"
@@ -1465,7 +1416,6 @@
       "en": ""
      },
      "price": 275,
-     "variants": [],
      "image": null,
      "tags": [
       "sweet"
@@ -1482,7 +1432,6 @@
       "en": ""
      },
      "price": 275,
-     "variants": [],
      "image": "TIRAMISU.jpg",
      "tags": [
       "sweet"
@@ -1492,14 +1441,13 @@
      "id": "pistachios-cup",
      "name": {
       "tr": "Antep Fıstıklı Bardak",
-      "en": "Pistachios Cup"
+      "en": "Pistachio Cup"
      },
      "desc": {
       "tr": "",
       "en": ""
      },
      "price": 300,
-     "variants": [],
      "image": null,
      "tags": [
       "sweet"
@@ -1525,7 +1473,6 @@
       "en": ""
      },
      "price": 200,
-     "variants": [],
      "image": "BITTER-CHOCOLATE-COOKIE.jpg",
      "tags": [
       "sweet"
@@ -1535,14 +1482,13 @@
      "id": "pistachios-cookie",
      "name": {
       "tr": "Antep Fıstıklı Cookie",
-      "en": "Pistachios Cookie"
+      "en": "Pistachio Cookie"
      },
      "desc": {
       "tr": "",
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": "ANTEP-FISTIKLI-COOKIE.jpg",
      "tags": [
       "sweet"
@@ -1559,7 +1505,6 @@
       "en": ""
      },
      "price": 230,
-     "variants": [],
      "image": "CHOCOLATE-CHIP-COOKIE.jpg",
      "tags": [
       "sweet"
@@ -1585,7 +1530,6 @@
       "en": ""
      },
      "price": 350,
-     "variants": [],
      "image": "LOTUS-CHEESECAKE.jpg",
      "tags": [
       "sweet"
@@ -1602,7 +1546,6 @@
       "en": ""
      },
      "price": 350,
-     "variants": [],
      "image": "LIMONLU-CHEESECAKE-1.jpg",
      "tags": [
       "sweet"
@@ -1619,7 +1562,6 @@
       "en": ""
      },
      "price": 275,
-     "variants": [],
      "image": null,
      "tags": [
       "sweet"
@@ -1645,7 +1587,6 @@
       "en": ""
      },
      "price": 275,
-     "variants": [],
      "image": "TART.jpg",
      "tags": [
       "sweet"
@@ -1671,7 +1612,6 @@
       "en": ""
      },
      "price": 225,
-     "variants": [],
      "image": null,
      "tags": [
       "sweet"
@@ -1688,7 +1628,6 @@
       "en": ""
      },
      "price": 350,
-     "variants": [],
      "image": "LOTUS-CROISSANT.jpg",
      "tags": [
       "sweet"
@@ -1705,7 +1644,6 @@
       "en": ""
      },
      "price": 325,
-     "variants": [],
      "image": "BEYAZ-CIKOLATALI-BADEMLI-CROISSANT.jpg",
      "tags": [
       "sweet"
@@ -1722,7 +1660,6 @@
       "en": ""
      },
      "price": 350,
-     "variants": [],
      "image": "CIKOLATALI-CROISSANT-1.jpg",
      "tags": [
       "sweet"
@@ -1739,7 +1676,6 @@
       "en": ""
      },
      "price": 350,
-     "variants": [],
      "image": "MEYVELI-CIKOLATALI-CROISSANT.jpg",
      "tags": [
       "sweet"
@@ -1765,7 +1701,6 @@
       "en": ""
      },
      "price": 250,
-     "variants": [],
      "image": "ZEYTINLI-CROISSANT.jpg",
      "tags": [
       "savory"
@@ -1791,7 +1726,6 @@
       "en": ""
      },
      "price": 250,
-     "variants": [],
      "image": "BAGSI-SANDWICH.jpg",
      "tags": [
       "savory"
@@ -1808,7 +1742,6 @@
       "en": ""
      },
      "price": 275,
-     "variants": [],
      "image": "CROISSANT-SANDWICH.jpg",
      "tags": [
       "savory"
@@ -1825,7 +1758,6 @@
       "en": ""
      },
      "price": 275,
-     "variants": [],
      "image": "EKSI-MAYALI-SANDWICH.jpg",
      "tags": [
       "savory"
@@ -1851,7 +1783,6 @@
       "en": "Strained Yogurt, Egg, Fried Croissant, Sesame, Black Cumin"
      },
      "price": 275,
-     "variants": [],
      "image": null,
      "tags": [
       "savory"
@@ -1868,7 +1799,6 @@
       "en": "Tuna, Dried Chickpeas, Mediterranean Greens, Tomato, Cucumber, Egg, Quinoa, Toasted Bread"
      },
      "price": 275,
-     "variants": [],
      "image": null,
      "tags": [
       "savory"
@@ -1885,7 +1815,6 @@
       "en": "Red Forest Fruits, Granola, Flaxseed, Chia Seeds, Honey / Chocolate"
      },
      "price": 275,
-     "variants": [],
      "image": null,
      "tags": [
       "sweet"
@@ -1911,7 +1840,6 @@
       "en": "Croissant, Cheese, Roasted Pepper, Olives, Almonds, Milk Jam, Honey, Seasonal Fruit, Tea"
      },
      "price": 275,
-     "variants": [],
      "image": null,
      "tags": [
       "savory"
@@ -1928,7 +1856,6 @@
       "en": "Egg, Veal Ham, Cheese, Olives, Bread, Seasonal Fruit, Tomato, Cucumber, Tea"
      },
      "price": 275,
-     "variants": [],
      "image": null,
      "tags": [
       "savory"
@@ -1945,7 +1872,6 @@
       "en": "Egg, Veal Ham, Cheese, Olives, Bread, Seasonal Fruit, Tomato, Cucumber, Tea, Croissant"
      },
      "price": 275,
-     "variants": [],
      "image": null,
      "tags": [
       "savory"
@@ -1971,7 +1897,6 @@
       "en": "Served with tomato, cucumber and olives."
      },
      "price": 250,
-     "variants": [],
      "image": null,
      "tags": [
       "savory"
@@ -1988,7 +1913,6 @@
       "en": "Scrambled Egg, Cheddar Cheese, Tomato, Veal Ham, Mayonnaise"
      },
      "price": 275,
-     "variants": [],
      "image": null,
      "tags": [
       "savory"
@@ -2005,7 +1929,6 @@
       "en": "Kashar Cheese, White Cheese, Walnut, Thyme, Acuka Sauce"
      },
      "price": 250,
-     "variants": [],
      "image": null,
      "tags": [
       "savory"
