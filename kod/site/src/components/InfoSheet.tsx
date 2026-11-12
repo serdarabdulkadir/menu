@@ -1,36 +1,25 @@
 "use client";
 import { useSyncExternalStore } from "react";
 import { Drawer } from "vaul";
-import { INFO, isOpenNow } from "@/lib/menu";
+import { INFO, isOpenNow, minutesToClose, minuteNow, subscribeMinute } from "@/lib/menu";
 import { t } from "@/lib/i18n";
 import { useApp } from "./store";
-import { Icon } from "./ui";
+import { Icon, Logo } from "./ui";
 
 const noop = () => () => {};
 const LABEL = "text-[10.5px] font-semibold uppercase tracking-[0.12em] text-mut";
 const PHOTOS = ["/img/mekan-salon.jpg", "/img/mekan-tezgah.jpg", "/img/urun/COFFEE-LATTE-1.webp"];
-const subMinute = (cb: () => void) => { const id = setInterval(cb, 60000); return () => clearInterval(id); };
-
-// Kapanışa kalan dakika (isOpenNow ile aynı mantık, gece yarısı dahil)
-function minutesToClose(d: Date) {
-  const m = d.getHours() * 60 + d.getMinutes();
-  const [oh, om] = INFO.open.split(":").map(Number); const [ch, cm] = INFO.close.split(":").map(Number);
-  const o = oh * 60 + om; let c = ch * 60 + cm; if (c <= o) c += 24 * 60;
-  for (const x of [m, m + 24 * 60]) if (x >= o && x < c) return c - x;
-  return 0;
-}
 
 export function InfoSheet({ open, onOpenChange }: { open: boolean; onOpenChange: (b: boolean) => void }) {
   const { lang } = useApp();
   // Sunucuda null, istemcide o anki durum (hydration uyumlu)
-  const isOpen = useSyncExternalStore(noop, () => (open ? isOpenNow() : null), () => null);
-  // Açıkken dakikada bir yenilenen dakika sayacı (kalan süre için)
-  const tick = useSyncExternalStore(isOpen ? subMinute : noop, () => (isOpen ? Math.floor(Date.now() / 60000) : null), () => null);
+  const tick = useSyncExternalStore(open ? subscribeMinute : noop, () => (open ? minuteNow() : null), () => null);
+  const isOpen = tick === null ? null : isOpenNow();
 
   let status = "";
   if (isOpen !== null) {
     if (isOpen) {
-      const left = minutesToClose(new Date((tick ?? 0) * 60000));
+      const left = minutesToClose();
       const h = Math.floor(left / 60), mm = left % 60;
       const tm = h > 0 ? `${h} ${t("hrShort", lang)} ${mm} ${t("minShort", lang)}` : `${mm} ${t("minShort", lang)}`;
       status = t("openLeft", lang).replace("{t}", tm);
@@ -45,22 +34,14 @@ export function InfoSheet({ open, onOpenChange }: { open: boolean; onOpenChange:
         <Drawer.Content aria-describedby={undefined} className="fixed inset-x-0 bottom-0 z-50 mx-auto flex max-h-[94svh] max-w-[440px] flex-col rounded-t-[24px] bg-paper outline-none">
           <div className="mx-auto mt-2.5 h-1 w-10 shrink-0 rounded-full bg-ink/20" />
           <div className="overflow-y-auto px-6 pb-[max(20px,env(safe-area-inset-bottom))] pt-4">
-            <Drawer.Title asChild>
-              <div className="font-serif text-[34px] leading-none text-ink">
-                <div className="text-left">
-                  <span className={`${LABEL} block font-sans`}>{t("atDoor", lang)}</span>
-                  <span className="mt-1.5 block">— permesso?</span>
-                </div>
-                <div className="mt-4 text-right">
-                  <i className="block text-oak">— avanti!</i>
-                  <span className={`${LABEL} mt-1.5 block font-sans`}>{t("fromInside", lang)}</span>
-                </div>
-              </div>
-            </Drawer.Title>
-            <p className="mt-4 text-[14.5px] leading-relaxed text-mut">{story.map((s, i) => (i % 2 ? <i key={i} className="font-serif">{s}</i> : s))}</p>
-            <p className="mt-4 flex h-5 items-center gap-2 text-[13.5px] text-ink">
+            <Drawer.Title className="font-serif text-[36px] leading-none text-ink">permesso? <i className="text-oak">avanti!</i></Drawer.Title>
+            <p className="mt-3 flex h-5 items-center gap-2 text-[13.5px] text-ink">
               {isOpen !== null && <><span aria-hidden className={`h-2 w-2 rounded-full ${isOpen ? "bg-[#4f6b3a]" : "bg-oak"}`} />{status}</>}
             </p>
+            <div className="mt-5 flex items-center gap-4">
+              <Logo className="w-[48px] shrink-0" />
+              <p className="text-[14.5px] leading-relaxed text-mut">{story.map((s, i) => (i % 2 ? <i key={i} className="font-serif">{s}</i> : s))}</p>
+            </div>
 
             <div className="mt-5 border-y border-ink/12">
               <div className="py-3.5">
@@ -86,10 +67,10 @@ export function InfoSheet({ open, onOpenChange }: { open: boolean; onOpenChange:
                 <span className="font-serif text-[22px] text-ink">@{INFO.handle}</span>
                 <span className="flex items-center gap-1.5 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-oak">{t("follow", lang)} {Icon.arrow("h-3.5 w-3.5")}</span>
               </span>
-              <span className="mt-5 grid grid-cols-2 grid-rows-2 gap-2">
-                {PHOTOS.map((p, i) => (
+              <span className="mt-4 grid grid-cols-3 gap-2">
+                {PHOTOS.map((p) => (
                   // eslint-disable-next-line @next/next/no-img-element
-                  <img key={p} src={p} alt="" loading="lazy" className={`w-full rounded-[10px] object-cover ${i === 0 ? "row-span-2 h-full" : "aspect-square"}`} />
+                  <img key={p} src={p} alt="" width={p.includes("/urun/") ? 600 : 640} height={p.includes("/urun/") ? 600 : 359} loading="lazy" decoding="async" className="aspect-[3/4] w-full rounded-[10px] object-cover" />
                 ))}
               </span>
             </a>

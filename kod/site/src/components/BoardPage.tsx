@@ -1,5 +1,5 @@
 "use client";
-import { BOARD_ILL, BOARDS, norm, price, type Item } from "@/lib/menu";
+import { BOARD_ILL, BOARDS, keyOf, norm, price, type Item } from "@/lib/menu";
 import { t } from "@/lib/i18n";
 import { useApp } from "./store";
 import { Frame, Icon, Logo, Thumb } from "./ui";
@@ -12,18 +12,35 @@ export function Mark({ text, q }: { text: string; q?: string }) {
   return <>{text.slice(0, at)}<span className="underline decoration-oak decoration-2 underline-offset-[3px]">{text.slice(at, at + k.length)}</span>{text.slice(at + k.length)}</>;
 }
 
-export function Row({ i, onOpen, q, index = 0 }: { i: Item; onOpen: (i: Item) => void; q?: string; index?: number }) {
-  const { lang } = useApp();
+export function Row({ i, onOpen, q, index = 0, quickAdd = true }: { i: Item; onOpen: (i: Item) => void; q?: string; index?: number; quickAdd?: boolean }) {
+  const { lang, lines, add } = useApp();
   const sub = lang === "tr" && i.name.tr !== i.name.en ? i.name.tr : null;
+  const nOpt = i.options?.length ?? 0;
+  const inList = lines.reduce((s, l) => (l.itemKey === keyOf(i) ? s + l.qty : s), 0);
+  const onPlus = () => (nOpt ? onOpen(i) : add(i, [], 1));
   return (
-    <button onClick={() => onOpen(i)} style={index ? { ["--i" as string]: Math.min(index, 9) } : undefined} className={`${index ? "rise" : ""} group flex w-full items-center gap-3.5 py-2.5 text-left transition-transform duration-150 active:scale-[0.985]`}>
-      <Thumb file={i.image} ill={BOARD_ILL[i.board]} className="h-[68px] w-[54px]" />
-      <span className="min-w-0 flex-1">
-        <span lang="en" className="block text-[12.5px] font-medium uppercase tracking-[0.06em] text-ink"><Mark text={i.name.en} q={q} /></span>
-        {sub && <span className="mt-0.5 block font-serif text-[15px] italic leading-tight text-mut"><Mark text={sub} q={q} /></span>}
-      </span>
-      <span className="tabular shrink-0 text-[14px] font-medium text-ink">{price(i.price)}</span>
-    </button>
+    <div style={index ? { ["--i" as string]: Math.min(index, 9) } : undefined} className={`${index ? "rise" : ""} flex w-full items-center`}>
+      <button onClick={() => onOpen(i)} className={`group flex min-w-0 flex-1 items-center gap-3.5 py-2.5 text-left transition-transform duration-150 active:scale-[0.985] ${i.available ? "" : "opacity-[0.55]"}`}>
+        <Thumb file={i.image} ill={BOARD_ILL[i.board]} className="h-[68px] w-[54px]" />
+        <span className="min-w-0 flex-1">
+          <span lang="en" className="block text-[12.5px] font-medium uppercase tracking-[0.06em] text-ink"><Mark text={i.name.en} q={q} /></span>
+          {sub && <span className="mt-0.5 block font-serif text-[15px] italic leading-tight text-mut"><Mark text={sub} q={q} /></span>}
+          {nOpt > 0 && <span className="mt-0.5 block text-[11px] text-oak">{nOpt} {t("optionsN", lang)}</span>}
+        </span>
+        {i.available
+          ? <span className="tabular shrink-0 text-[14px] font-medium text-ink">{price(i.price)}</span>
+          : <span className="shrink-0 text-[11px] font-medium uppercase tracking-[0.12em] text-mut">{t("notToday", lang)}</span>}
+      </button>
+      {quickAdd && i.available && (
+        <button aria-label={t("quickAdd", lang)} onClick={onPlus} className="ml-0.5 grid h-11 w-11 shrink-0 place-items-center text-ink">
+          {inList > 0 ? (
+            <span className="tabular grid h-8 w-8 place-items-center rounded-full bg-oak text-[13px] font-semibold text-ink">{inList}</span>
+          ) : (
+            <span className="grid h-8 w-8 place-items-center rounded-full border border-ink/20">{Icon.plus("h-4 w-4")}</span>
+          )}
+        </button>
+      )}
+    </div>
   );
 }
 
@@ -31,7 +48,7 @@ export function BoardPage({ id }: { id: string }) {
   const { lang, go, openProduct, setInfoOpen } = useApp();
   const b = BOARDS.find((x) => x.id === id)!;
   return (
-    <div className="mx-auto max-w-[440px]">
+    <div className="page-in mx-auto max-w-[440px]">
       <Frame b={14} className="min-h-[100svh] pb-32" style={{ viewTransitionName: `board-${b.id}` }}>
         <div>
           <div className="flex items-start justify-between px-6 pt-7">

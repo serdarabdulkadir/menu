@@ -22,6 +22,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="tr" className={`${isans.variable} ${iserif.variable} ${manrope.variable} ${yellowtail.variable} antialiased`}>
+      <head><link rel="preload" as="image" href="/img/mekan.webp" fetchPriority="high" /></head>
       <body className="font-sans">{children}</body>
     </html>
   );

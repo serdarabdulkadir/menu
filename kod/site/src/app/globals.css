@@ -61,8 +61,10 @@ body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; -w
 .rise { animation: rise .52s cubic-bezier(.2,.8,.2,1) both; animation-delay: calc(var(--i, 0) * 45ms); }
 
 /* Pano duvarında seçili olmayan panolar hafifçe geri çekilir */
-.board-card { transform-origin: 50% 55%;
-  will-change: transform, opacity; contain: layout paint style; backface-visibility: hidden; }
+/* Çivide asılı pano: dönme üst ortadan; katman sabit (will-change her karede değişmez) */
+.board-card { transform-origin: 50% -10px; will-change: transform, opacity;
+  contain: layout paint style; backface-visibility: hidden;
+  box-shadow: 0 10px 22px -10px rgba(64,42,18,.38); }
 
 /* Karusel şeridi kendi GPU katmanında: sürüklerken yeniden çizim yok */
 .wall-track { will-change: transform; backface-visibility: hidden; touch-action: pan-y pinch-zoom; }
@@ -71,13 +73,26 @@ body { -webkit-tap-highlight-color: transparent; overscroll-behavior-y: none; -w
 .cv-auto { content-visibility: auto; contain-intrinsic-size: auto 600px; }
 
 /* Ekranlar arası geçiş (View Transitions): pano → tam ekran pano aynı isimle büyür */
-::view-transition-group(*) { animation-duration: .46s; animation-timing-function: cubic-bezier(.2,.8,.2,1); }
-::view-transition-old(root) { animation: .22s cubic-bezier(.4,0,1,1) both vt-out; }
-::view-transition-new(root) { animation: .38s cubic-bezier(.2,.8,.2,1) .06s both vt-in; }
+::view-transition-group(*) { animation-duration: 380ms; animation-timing-function: cubic-bezier(.2,.8,.2,1); }
+::view-transition-old(root) { animation: 180ms ease-out both vt-out; }
+::view-transition-new(root) { animation: 180ms ease-out both vt-in; }
+/* Morf eden pano: düz çapraz solma */
+::view-transition-image-pair(*) { isolation: auto; }
+::view-transition-old(*), ::view-transition-new(*) { mix-blend-mode: normal; }
 ::view-transition-old(bottombar), ::view-transition-new(bottombar) { animation: none; }
-@keyframes vt-out { to { opacity: 0; transform: scale(.985); } }
-@keyframes vt-in { from { opacity: 0; transform: translate3d(0, 10px, 0); } }
+@keyframes vt-out { to { opacity: 0; } }
+@keyframes vt-in { from { opacity: 0; } }
+
+/* View Transitions olmayan tarayıcılar için hafif yedek giriş */
+@keyframes enter-fb { from { opacity: 0; transform: translate3d(0, 10px, 0); } to { opacity: 1; transform: none; } }
+@supports not (view-transition-name: none) { main, .page-in { animation: enter-fb 260ms cubic-bezier(.2,.8,.2,1) both; } }
 
 @media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
 }
+
+/* Karşılama: kapı fotoğrafı ilk açılışta yumuşakça belirir (zemin zaten opak, menü sızmaz) */
+@keyframes door-in { from { opacity: 0; } to { opacity: 1; } }
+.door-photo { animation: door-in .7s ease-out both; }
+@media (prefers-reduced-motion: reduce) { .door-photo { animation: none; } }

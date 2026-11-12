@@ -1,21 +1,24 @@
 "use client";
 import { useEffect } from "react";
 import { AnimatePresence, motion } from "motion/react";
-import { BOARD_ILL, EXTRAS, ITEM_BY_ID, price } from "@/lib/menu";
+import { BOARD_ILL, EXTRAS, ITEM_BY_ID, SHOWCASE, optionLabel, price } from "@/lib/menu";
 import { t } from "@/lib/i18n";
 import { useApp, type Line } from "./store";
 import { Frame, Icon, Logo, Thumb } from "./ui";
+import { Row } from "./BoardPage";
 
 const exName = (id: string, l: "tr" | "en") => EXTRAS.find((e) => e.id === id)?.name[l] ?? id;
 
 function LineRow({ l }: { l: Line }) {
   const { lang, setQty, lineTotal } = useApp();
-  const i = ITEM_BY_ID.get(l.itemKey)!;
+  const i = ITEM_BY_ID.get(l.itemKey);
+  if (!i) return null;
   return (
     <motion.div layout exit={{ opacity: 0, x: -20 }} className="flex items-center gap-3.5 border-b border-ink/[0.08] py-3">
       <Thumb file={i.image} ill={BOARD_ILL[i.board]} className="h-[64px] w-[50px]" />
       <div className="min-w-0 flex-1">
-        <p lang="en" className="text-[12.5px] font-medium uppercase tracking-[0.06em] text-ink">{i.name.en}</p>
+        <p lang={lang} className="text-[12.5px] font-medium uppercase tracking-[0.06em] text-ink">{lang === "tr" ? i.name.tr : i.name.en}</p>
+        {l.option && <p className="font-serif text-[14px] italic text-mut">{optionLabel(l.option, lang)}</p>}
         {l.extras.length > 0 && <p className="font-serif text-[14px] italic text-mut">+ {l.extras.map((e) => exName(e, lang)).join(", ")}</p>}
         <div className="mt-1.5 inline-flex items-center rounded-full border border-ink/20">
           <button aria-label={t("dec", lang)} onClick={() => setQty(l.key, l.qty - 1)} className="grid h-11 w-11 place-items-center">{Icon.minus("h-4 w-4")}</button>
@@ -29,7 +32,7 @@ function LineRow({ l }: { l: Line }) {
 }
 
 export function TablePage() {
-  const { lang, go, lines, total, count, note, setNote, masa } = useApp();
+  const { lang, go, lines, total, count, note, setNote, masa, openProduct, clearList } = useApp();
   return (
     <div className="mx-auto max-w-[440px]">
       <Frame b={14} className="min-h-[100svh]" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ type: "spring", stiffness: 260, damping: 30 }}>
@@ -38,12 +41,17 @@ export function TablePage() {
           <Logo className="mt-0.5 w-[34px]" />
           <span className="w-7" />
         </div>
-        <div className="grid grid-cols-[88px_1fr] pb-10 pr-6">
+        <div className={`grid grid-cols-[88px_1fr] pb-10 pr-6 ${lines.length === 0 ? "min-h-[calc(100svh-90px)]" : ""}`}>
           <div className="flex flex-col justify-end"><h1 className="vtitle sticky bottom-[40px] ml-[18px] text-[72px]">{t("table", lang)}</h1></div>
-          <div className="pt-4">
+          <div className={lines.length === 0 ? "flex flex-col justify-center pb-10" : "pt-4"}>
             <p className="text-[10.5px] font-semibold uppercase tracking-[0.12em] text-mut">{t("picks", lang)}{masa ? ` · ${t("table", lang)} ${masa}` : ""}</p>
             {lines.length === 0 ? (
-              <p className="mt-6 font-serif text-[19px] italic leading-snug text-mut">{t("emptyTable", lang)}</p>
+              <>
+                <p className="mt-6 font-serif text-[19px] italic leading-snug text-mut">{t("emptyTable", lang)}</p>
+                <button onClick={() => go({ name: "wall" })} className="mt-6 h-[52px] w-full rounded-full bg-ink text-[15px] font-semibold text-paper">{t("backToMenu", lang)}</button>
+                <p className="mt-8 border-b border-ink/12 pb-2 text-[10.5px] font-semibold uppercase tracking-[0.12em] text-mut">{t("maybeThese", lang)}</p>
+                <div className="divide-y divide-ink/[0.07]">{SHOWCASE.slice(0, 4).map((i) => <Row key={i.id + i.category} i={i} onOpen={openProduct} />)}</div>
+              </>
             ) : (
               <>
                 <div className="mt-1"><AnimatePresence initial={false}>{lines.map((l) => <LineRow key={l.key} l={l} />)}</AnimatePresence></div>
@@ -51,9 +59,10 @@ export function TablePage() {
                 <p className="tabular font-serif text-[56px] leading-none">{price(total)}</p>
                 <p className="mt-1 text-[13px] text-mut"><span className="tabular">{count}</span> {t("items", lang)}</p>
                 <input value={note} onChange={(e) => setNote(e.target.value)} placeholder={t("note", lang)}
-                  className="mt-6 w-full rounded-[6px] border border-ink/15 bg-ink/[0.03] px-3.5 py-3 font-serif text-[17px] italic outline-none placeholder:text-ink/55 focus:border-ink/40" />
+                  className="mt-6 w-full rounded-[6px] border border-ink/15 bg-ink/[0.03] px-3.5 py-3 font-serif text-[17px] italic outline-none placeholder:text-ink/65 focus:border-ink/40" />
                 <button onClick={() => go({ name: "show" })} className="mt-6 h-[54px] w-full rounded-full bg-ink text-[15px] font-semibold text-paper">{t("showWaiter", lang)}</button>
                 <p className="mt-3 font-serif text-[14px] italic text-mut">{t("notOrder", lang)}</p>
+                <button onClick={clearList} className="mt-5 min-h-11 text-[15px] text-mut underline decoration-ink/30 decoration-[1.5px] underline-offset-[6px] transition-colors active:text-ink">{t("clearList", lang)}</button>
               </>
             )}
           </div>
@@ -88,12 +97,14 @@ export function ShowPage() {
         <div className="my-5 border-t border-dashed border-ink/30" />
         {note && <p className="mb-4 font-serif text-[24px] italic">“{note}”</p>}
         {lines.map((l) => {
-          const i = ITEM_BY_ID.get(l.itemKey)!;
+          const i = ITEM_BY_ID.get(l.itemKey);
+          if (!i) return null;
           return (
             <div key={l.key} className="flex items-baseline gap-3 border-b border-ink/10 py-3">
               <span className="tabular w-8 shrink-0 text-[18px] font-semibold">{l.qty}×</span>
               <span className="flex-1">
                 <span className="block font-serif text-[30px] leading-[1.05]">{lang === "tr" ? i.name.tr : i.name.en}</span>
+                {l.option && <span className="block text-[14px] text-mut">{optionLabel(l.option, lang)}</span>}
                 {l.extras.length > 0 && <span className="block text-[14px] text-mut">+ {l.extras.map((e) => exName(e, lang)).join(", ")}</span>}
               </span>
               <span className="tabular text-[17px]">{price(lineTotal(l))}</span>

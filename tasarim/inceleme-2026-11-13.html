@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Permesso QR Menü · Uzman incelemesi</title>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;1,6..96,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f5f2ec;--ink:#1f1a15;--mut:#6f655a;--oak:#c49a62;--line:#e3dbcf;--hi:#9c3d26;--mid:#a2742c;--lo:#6b7a5a}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.55 "Instrument Sans",system-ui,sans-serif}
+main{max-width:860px;margin:0 auto;padding:40px 22px 80px}
+h1{font:400 40px/1.1 "Bodoni Moda",serif;margin:0}h1 em{color:var(--oak)}
+h2{font:400 26px/1.2 "Bodoni Moda",serif;margin:44px 0 6px}
+.lab{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+p.lead{color:var(--mut);margin:10px 0 0;max-width:640px}
+.pk{border-top:1px solid var(--line);padding:18px 0;display:grid;grid-template-columns:120px 1fr;gap:16px}
+.pk h3{margin:0 0 6px;font-size:17px;font-weight:600}
+.pk ul{margin:6px 0 0;padding-left:18px}.pk li{margin:3px 0}
+.tag{display:inline-block;font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border:1px solid currentColor;border-radius:3px}
+.h{color:var(--hi)}.m{color:var(--mid)}.l{color:var(--lo)}
+.src{font-size:12.5px;color:var(--mut)}
+.note{background:#fff8ec;border-left:3px solid var(--oak);padding:12px 14px;margin-top:14px;font-size:14px}
+.dirs{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin-top:14px}
+.d{border:1px solid var(--line);background:#fbf9f5;padding:16px;border-radius:6px}
+.d h3{font:italic 400 21px/1.2 "Bodoni Moda",serif;margin:4px 0 8px}
+.d.rec{border-color:var(--oak);box-shadow:0 0 0 1px var(--oak)}
+.ok{color:var(--mut);font-size:14px}
+code{font-size:13px;background:#ece6dc;padding:1px 5px;border-radius:3px}
+@media(max-width:600px){.pk{grid-template-columns:1fr;gap:4px}}
+</style></head><body><main>
+<p class="lab">Permesso QR Menü · 13 Kasım 2026 · commit 10957b5 sonrası</p>
+<h1>Uzman incelemesi: <em>ne yapalım?</em></h1>
+<p class="lead">İki uzman baktı: UX (akışı telefonda ekran görüntüleriyle gezdi) ve kod/kütüphane (Embla, Vaul, Motion, Fuse, sonner). Kritik hata yok. Bulguları uygulanabilir paketlere böldüm. Her paket bir adım: yerelde bakıp onaylıyorsun, sonra sıradakine geçiyoruz.</p>
+
+<h2>Önerilen sıra</h2>
+
+<div class="pk"><div><span class="tag h">1 · Yüksek</span></div><div>
+<h3>Tek dokunuşla ekle + seçenekler + bildirim</h3>
+<ul>
+<li>Pano satırlarının sağında 44px <b>+</b>: tek dokunuşla eklenir, satırda adet rozeti görünür. Satırın kendisine dokununca detay açılır.</li>
+<li>Seçenekli ürünlerde (Latte: Sade + 8, Mocha 3, Bitki çayı 9) satırda “8 seçenek” ipucu, detayda seçim çipleri.</li>
+<li>sonner ile “Seçtiklerine eklendi · Gör” bildirimi (alt çubuğun üstünde).</li>
+<li>Alt çubukta adedin yanında toplam: <code>Seçtiklerim · 3 · 540 ₺</code>.</li>
+</ul>
+<p class="src">Kaynak: UX #1, #2 · referans sitenin satır başına “listeme ekle” işlevi</p></div></div>
+
+<div class="pk"><div><span class="tag h">2 · Yüksek</span></div><div>
+<h3>Karşılama ekranı</h3>
+<p>Aşağıdaki üç yöndan birini seçmen gerekiyor.</p></div></div>
+
+<div class="pk"><div><span class="tag m">3 · Orta</span></div><div>
+<h3>Kod incelemesinden düzeltmeler</h3>
+<ul>
+<li>“Sade/Plain” seçeneği dile bağlı saklanıyor; dil değişince aynı ürün iki satır olur → sabit kimlik.</li>
+<li>Kapı levhası saat 09:30 / 00:00’ı geçince kendiliğinden güncellenmiyor → dakikalık güncelleme.</li>
+<li>Panoyu kaydırınca üstteki “Uyan / Serinle…” çizgisi eşlenmiyor → seçili panodan türet.</li>
+<li>Saat hesabı Türkiye saatine sabitlenecek (yurtdışı telefonlarda yanlış gösterebilir).</li>
+<li>Panodan duvara dönüşte kart girişi animasyonu geçişle çakışabilir (şüphe) → geri dönüşte atla.</li>
+</ul>
+<p class="src">Kaynak: kod incelemesi (orta + düşük)</p></div></div>
+
+<div class="pk"><div><span class="tag m">4 · Orta</span></div><div>
+<h3>Arama ve Seçtiklerim boş durumları</h3>
+<ul>
+<li>Arama açılınca boş beyaz alan yerine “Çok istenenler” ve pano kısayolları; süzgeç çipleri sade çip, sağda solma ile kaydırılabilir olduğu belli.</li>
+<li>Seçtiklerim boşken “Menüye dön” butonu ve 3–4 öneri.</li>
+<li>Seçtiklerim’de ürün adları seçili dilde (şu an hep İngilizce, fişte Türkçe; tutarsız).</li>
+</ul>
+<p class="src">Kaynak: UX #3, #4, #9</p></div></div>
+
+<div class="pk"><div><span class="tag l">5 · Düşük</span></div><div>
+<h3>Vitrin ve küçük cilalar</h3>
+<ul>
+<li>“Vitrinden” fotoğraflı öne çıkanlar şeridi (referansta var).</li>
+<li>Not alanı placeholder kontrastı, TR/EN çipleri 44px.</li>
+<li>Wi-Fi bilgisi + kopyala butonu bilgi panelinde (şifre sende).</li>
+</ul></div></div>
+
+<div class="note"><b>Uzmanla aynı fikirde olmadığım iki nokta:</b> (1) “Seçtiklerim’de sayı rozeti yok” dedi; adet rozeti zaten var, eksik olan toplam tutar. (2) Karşılama için önerdiği “kapıya 3 kere dokun” fikri referans sitenin girişiyle birebir aynı; onu kopyalamıyoruz, aşağıda kendi yorumumuzu koydum.</div>
+
+<h2>Karşılama ekranı: 3 yön</h2>
+<p class="ok">Şu anki durum: kemerli mekân fotoğrafı, üstünde sönük pembe neon “permesso?” (bitki yaprağıyla çakışıp zor okunuyor), altta zorunlu “Kaydır · Avanti!” çubuğu, TR/EN çipi küçük.</p>
+<div class="dirs">
+<div class="d rec"><span class="lab">Önerim</span><h3>Kapı aralanır</h3>Kemerli fotoğraf bir kapı gibi davranır. <b>Tek dokunuş</b> (ya da kaydırma) ile iki kanat hafifçe aralanır. Neon “permesso?” söner, yerine meşe italik “avanti!” belirir ve pano duvarı içeriden görünür. Kaydırma çubuğu kalkar, giriş tek hamle olur. Hikâye bizim yorumumuzla anlatılır.</div>
+<div class="d"><span class="lab">Hafif dokunuş</span><h3>Neon levha + canlı durum</h3>Düzen aynı kalır. Neonun arkasına yumuşak koyu vinyet eklenir, okunur hâle gelir. “Her gün 09:30–00:00” yerine canlı “Şimdi açık · 00:00’e kadar” yazar. Kaydırma çubuğu tek dokunuşla da çalışır. En az iş, en az risk.</div>
+<div class="d"><span class="lab">Hız</span><h3>Bir kez göster</h3>Karşılama oturumda yalnız ilk açılışta gelir, menüden geri dönüldüğünde ya da yenilendiğinde atlanır. Dil, telefonun dilinden otomatik seçilir. Diğer iki yönle birleşebilir. (Not: önceki karar “açılış her seferinde gösterilsin” idi; bunu değiştirmek senin onayına bağlı.)</div>
+</div>
+<p class="note">Benim önerim: <b>“Kapı aralanır” + neon okunurluk düzeltmesi</b>. “Bir kez göster” kararı sende.</p>
+</main></body></html>
