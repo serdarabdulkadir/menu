@@ -1,8 +1,26 @@
-# Netlify: site kod/site klasöründe (Next.js — Netlify Next.js eklentisi otomatik devreye girer)
+# Netlify: site kod/site klasöründe, statik dışa aktarım (out/)
 [build]
   base = "kod/site"
   command = "npm run build"
-  publish = ".next"
+  publish = "out"
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Sayfa her açılışta taze gelsin; görseller 1 gün, hash'li dosyalar 1 yıl önbellekte
+[[headers]]
+  for = "/"
+  [headers.values]
+    Cache-Control = "no-store, must-revalidate"
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "no-store, must-revalidate"
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

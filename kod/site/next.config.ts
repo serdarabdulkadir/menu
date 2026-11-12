@@ -1,19 +1,11 @@
 import type { NextConfig } from "next";
 
+// Statik dışa aktarım: Netlify "out" klasörünü doğrudan yayınlar (sunucu gerekmez)
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
+  output: "export",
+  images: { unoptimized: true },
   devIndicators: false,
-  allowedDevOrigins: ['192.168.1.139', '*.local'],
-  partialPrefetching: true,
-  // Sayfa her açılışta taze gelsin (eski sürüm takılı kalmasın); hash'li JS/CSS ve görseller önbellekte kalır
-  async headers() {
-    return [
-      { source: "/", headers: [{ key: "Cache-Control", value: "no-store, must-revalidate" }] },
-      // Görseller 1 gün önbellekte (dosya adı değişmeden güncellenirse en geç ertesi gün yenilenir)
-      { source: "/img/:path*", headers: [{ key: "Cache-Control", value: "public, max-age=86400, stale-while-revalidate=604800" }] },
-    ];
-  },
+  allowedDevOrigins: ["192.168.1.139", "*.local"],
   turbopack: {
     rules: {
       "*.css": {
