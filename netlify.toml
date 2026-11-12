@@ -1,0 +1,8 @@
+# Netlify: site kod/site klasöründe (Next.js — Netlify Next.js eklentisi otomatik devreye girer)
+[build]
+  base = "kod/site"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
